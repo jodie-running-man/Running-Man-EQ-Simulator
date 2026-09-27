@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Running Man Equilibrium Model</title>
+
+    <style>
+
+.watermark {
+    position: fixed;
+    top: 8px;
+    right: 12px;
+    font-size: 13px;
+    color: #2a2f38;
+    opacity: 0.6;
+    font-weight:400;
+    pointer-events: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(180deg, #eef4f8, #f8fafc);
+    color: #1f2937;
+}
+h1 {
+    font-size: 30px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+
+.equilibrium-line {
+    position: relative;
+    width: 80%;
+    height: 220px;
+    margin: 100px auto;
+}
+
+.line {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: black;
+}
+
+.line::before,
+.line::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 6px;
+    height: 40px;
+    background: black;
+}
+
+.line::before {
+    left: 0;
+}
+
+.line::after {
+    right: 0;
+}
+
+.happy-face {
+    position: absolute;
+    top: 95px;
+    left: 65%;
+    font-size: 45px;
+}
+
+.running-man {
+    position: absolute;
+    top: 20px;
+    left: 0%;
+    width: 140px;
+    height: auto;
+}
+.left-label{
+    position:absolute;
+    top: 170px;
+    left: 0;
+    font-size: 18px;
+}
+.right-label {
+    position: absolute;
+    top: 170px;
+    right: 0;
+    font-size: 18px;
+}
+
+.ire-table {
+    position: relative;
+    text-align: center;
+    padding-bottom: 120px;
+    margin: 40px auto;
+}
+
+.reaction {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ire-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px 120px 120px 120px 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.ire-grid::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: black;
+    left: 51%;
+    transform: translateX(-50%);
+}
+
+.row-label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ire-grid input {
+    width: 100px;
+    padding: 8px;
+    font-size: 18px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.divider-line {
+    height: 100%;
+    width: 5px;
+    background-color: black;
+    justify-self:center;
+   
+}
+.reaction-grid {
+    display: grid;
+    grid-template-columns: 40px 90px 30px 90px 40px 90px 30px 90px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.ire-table {
+    background: white;
+    width: fit-content;
+    padding: 25px 40px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+}
+.concentration-control {
+
+    position: relative;
+
+    display: inline-block;
+
+}
+
+.concentration-value {
+
+    width: 100px;
+
+    padding: 8px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    border: 1px solid #999;
+
+    border-radius: 6px;
+
+}
+
+.adjust-buttons {
+
+    display: none;
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    top: 100%;
+
+    z-index: 10;
+
+}
+
+.concentration-control:hover .adjust-buttons {
+
+    display: flex;
+
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.mode-buttons button {
+    padding: 16px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: rgb(117, 175, 231);
+    color: #1f2937;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.mode-panel {
+    display: none;
+}
+
+.mode-panel.active {
+    display: block;
+}
+.q-expression {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.numerator {
+    border-bottom: 2px solid black;
+    padding: 0 8px 3px;
+}
+
+.denominator {
+    padding-top: 3px;
+}
+
+.ire-workspace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.ire-table {
+    font-weight: 600;
+}
+
+.reaction-grid {
+    font-weight: 700;
+}
+
+.row-label {
+    font-weight: 800;
+}
+
+
+.q-expression {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+#q-result  {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 25px);
+    transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+   font-size: 14px;
+   font-weight: 600;
+   white-space: nowrap;
+   
+}
+
+#q-result .fraction {
+    font-weight: 500;
+}
+.x-choice {
+    width: 100px;
+    height: 35px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.x-options {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    gap: 4px;
+    margin-top: 4px;
+    z-index: 20;
+}
+
+.x-choice:hover .x-options {
+    display: flex;
+
+}
+
+.x-options button {
+    width: 40px;
+    height: 35px;
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.action-row {
+   position: relative;
+   bottom: 15px;
+   height: 70px;
+   left: 20px;
+   right: 20px;
+}
+
+.apply-button {
+    left: 0;
+}
+
+.check-button {
+    right: 0;
+}
+.apply-button,
+.check-button {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: rgb(211, 222, 237);
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#check-result {
+    height: 35px;
+    margin: 12px 0 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+</style>
+</head>
+
+<body>
+
+    <h1>Running Man Equilibrium Model</h1>
+
+    <div class="equilibrium-line">
+
+        <div class="line"></div>
+        <div class="left-label">100%<br>R
+        </div>
+        <div class="right-label">100%<br>P</div>
+
+        <div class="happy-face">😊</div>
+
+        <img class="running-man" src="running-man.png">
+
+    </div>
+    <div class="mode-buttons">
+     <button onclick="showMode('initial')">Initial Conditions</button>
+<button onclick="showMode('equilibrium')">New Equilibrium</button>
+<button onclick="showMode('temperature')">Temperature</button>
+<button onclick="showMode('solve')">Solve for x</button>
+</div>
+    <div id="workspace" class="workspace">
+        <div id="initial-mode" class="mode-panel active">
+            <h2>Initial Conditions</h2>
+            <div class="ire-workspace">
+            <div class="ire-table">
+        <div id="check-result"></div>
+
+    <div class="reaction-grid">
+
+    <div></div>
+    <div>A</div>
+    <div>+</div>
+    <div>B</div>
+    <div>⇌</div>
+    <div>C</div>
+    <div>+</div>
+    <div>D</div>
+
+</div>
+    <div class="ire-grid">
+
+    <!-- I ROW -->
+
+    <div class="row-label">I</div>
+
+    <div class="concentration-control">
+        <div id="A-value" class="concentration-value">0.100 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increaseA()">▲</button>
+            <button onclick="decreaseA()">▼</button>
+        </div>
+    </div>
+
+    <div class="concentration-control">
+        <div id="B-value" class="concentration-value">0.100 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increaseB()">▲</button>
+            <button onclick="decreaseB()">▼</button>
+        </div>
+    </div>
+
+    <div class="concentration-control">
+        <div id="C-value" class="concentration-value">0.000 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increaseC()">▲</button>
+            <button onclick="decreaseC()">▼</button>
+        </div>
+    </div>
+
+    <div class="concentration-control">
+        <div id="D-value" class="concentration-value">0.000 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increaseD()">▲</button>
+            <button onclick="decreaseD()">▼</button>
+        </div>
+    </div>
+
+
+    <!-- R ROW -->
+
+    <div class="row-label">R</div>
+
+    <div class="x-choice" data-species="A">
+        <span>Choose</span>
+
+        <div class="x-options">
+            <button type="button" onclick="chooseX('A', '-x')">-x</button>
+            <button type="button" onclick="chooseX('A', '+x')">+x</button>
+        </div>
+    </div>
+
+    <div class="x-choice" data-species="B">
+        <span>Choose</span>
+
+        <div class="x-options">
+            <button type="button" onclick="chooseX('B', '-x')">-x</button>
+            <button type="button" onclick="chooseX('B', '+x')">+x</button>
+        </div>
+    </div>
+
+    <div class="x-choice" data-species="C">
+        <span>Choose</span>
+
+        <div class="x-options">
+            <button type="button" onclick="chooseX('C', '-x')">-x</button>
+            <button type="button" onclick="chooseX('C', '+x')">+x</button>
+        </div>
+    </div>
+
+    <div class="x-choice" data-species="D">
+        <span>Choose</span>
+
+        <div class="x-options">
+            <button type="button" onclick="chooseX('D', '-x')">-x</button>
+            <button type="button" onclick="chooseX('D', '+x')">+x</button>
+        </div>
+    </div>
+
+
+    <!-- E ROW -->
+
+    <div class="row-label">E</div>
+
+    <div id="A-equilibrium" class="concentration-value">
+        0.100 − x
+    </div>
+
+    <div id="B-equilibrium" class="concentration-value">
+        0.100 − x
+    </div>
+
+    <div id="C-equilibrium" class="concentration-value">
+        x
+    </div>
+
+    <div id="D-equilibrium" class="concentration-value">
+        x
+    </div>
+
+</div>
+
+
+<!-- APPLY INITIAL VALUES -->
+
+<div>
+    <button class="apply-button" onclick="updateEquilibrium()">
+        APPLY INITIAL VALUES
+    </button>
+
+    <button class="check-button" onclick="checkX()">
+        CHECK X SIGNS
+    </button>
+</div>
+
+
+    
+
+
+<!-- Q RESULT -->
+
+<div id="q-result">
+
+    <span>Keq = 4.00</span>
+
+    <span Q=span id="q-expression">
+
+        Q =
+
+        <span class="fraction">
+
+            <span class="numerator">[C][D]</span>
+
+            <span class="denominator">[A][B]</span>
+
+        </span>
+
+    </span>
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+<!-- NEW EQUILIBRIUM -->
+
+<div id="equilibrium-mode" class="mode-panel">
+
+    <h2>New Equilibrium</h2>
+
+    <p>Coming soon</p>
+
+</div>
+
+
+<!-- TEMPERATURE -->
+
+<div id="temperature-mode" class="mode-panel">
+
+    <h2>Temperature</h2>
+
+    <p>Coming soon</p>
+
+</div>
+
+
+<!-- SOLVE FOR X -->
+
+<div id="solve-mode" class="mode-panel">
+
+    <h2>Solve for x</h2>
+
+    <p>Coming soon</p>
+
+</div>
+
+
+</div>
+<script>
+
+
+function increaseA() {
+    const value = document.getElementById("A-value");
+    let A = parseFloat(value.textContent);
+    A = A + 0.010;
+    value.textContent = A.toFixed(3) + " M";
+
+    updateErow();
+    
+}
+
+function decreaseA() {
+    const value = document.getElementById("A-value");
+    let A = parseFloat(value.textContent);
+   if (A > 0) A = A - 0.010;
+    value.textContent = A.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function increaseB() {
+    const value = document.getElementById("B-value");
+    let B = parseFloat(value.textContent);
+    B = B + 0.010;
+    value.textContent = B.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function decreaseB() {
+    const value = document.getElementById("B-value");
+    let B = parseFloat(value.textContent);
+    if (B > 0) B = B - 0.010;
+    value.textContent = B.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function increaseC() {
+    const value = document.getElementById("C-value");
+    let C = parseFloat(value.textContent);
+    C = C + 0.010;
+    value.textContent = C.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function decreaseC() {
+    const value = document.getElementById("C-value");
+    let C = parseFloat(value.textContent);
+   if (C > 0) C = C - 0.010;
+    value.textContent = C.toFixed(3) + " M";
+
+    updateErow();
+}
+
+function increaseD() {
+    const value = document.getElementById("D-value");
+    let D = parseFloat(value.textContent);
+    D = D + 0.010;
+    value.textContent = D.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function decreaseD() {
+    const value = document.getElementById("D-value");
+    let D = parseFloat(value.textContent);
+    if (D > 0) D = D - 0.010;
+    value.textContent = D.toFixed(3) + " M";
+    
+    updateErow();
+}
+
+function updateErow() {
+
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(function(species) {
+
+        // Get the current Initial value
+
+        const initial = document
+
+            .getElementById(species + "-value")
+
+            .textContent
+
+            .replace(" M", "");
+
+        // Find what was selected in the R row
+
+        const choiceBox = document.querySelector(
+
+            '.x-choice[data-species="' + species + '"]'
+
+        );
+
+        const choice = choiceBox
+
+            ? choiceBox.getAttribute("data-choice")
+
+            : null;
+
+        // Find the corresponding E cell
+
+        const eCell = document.getElementById(
+
+            species + "-equilibrium"
+
+        );
+
+        if (!choice) {
+
+            eCell.textContent = initial;
+
+        } else {
+
+            eCell.textContent = initial + " " + choice;
+
+        }
+
+    });
+
+}
+
+
+function showMode(mode) {
+   document.querySelectorAll(".mode-panel").forEach(panel => {
+       panel.classList.remove("active");
+   });
+   document.getElementById(mode + "-mode").classList.add("active");
+} 
+
+function chooseX(species, choice) {
+
+    const box = document.querySelector(
+        '.x-choice[data-species="' + species + '"]'
+    );
+
+    // Remember the choice
+    box.setAttribute("data-choice", choice);
+
+    // Change the word "Choose" to the selected choice
+    const label = box.querySelector("span");
+    label.textContent = choice;
+
+    // Update the E row
+    updateErow();
+}
+
+
+function updateErow() {
+
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(function(species) {
+
+        // Get current I value
+        const initialText =
+            document.getElementById(species + "-value").textContent;
+
+        const initial =
+            parseFloat(initialText);
+
+        // Find R choice
+        const choiceBox = document.querySelector(
+            '.x-choice[data-species="' + species + '"]'
+        );
+
+        const choice =
+            choiceBox.getAttribute("data-choice");
+
+        // Find E cell
+        const eCell =
+            document.getElementById(species + "-equilibrium");
+
+        // Nothing selected yet
+        if (!choice) {
+            eCell.textContent = initial.toFixed(3);
+            return;
+        }
+
+        // Display the equilibrium expression
+        eCell.textContent =
+            initial.toFixed(3) + " " + choice;
+
+    });
+}
+
+
+
+function checkA() {
+    const A = document.getElementById("A-value");
+    console.log(A.textContent);
+}
+
+
+function updateEquilibrium() {
+
+    updateErow();
+
+    const A = parseFloat(document.getElementById("A-value").textContent);
+    const B = parseFloat(document.getElementById("B-value").textContent);
+    const C = parseFloat(document.getElementById("C-value").textContent);
+    const D = parseFloat(document.getElementById("D-value").textContent);
+
+    const Q = (C * D) / (A * B);
+    const K = 4.00;
+
+    console.log("Q =", Q);
+    console.log("K =", K);
+
+    const runningMan = document.querySelector(".running-man");
+const line = document.querySelector(".equilibrium-line");
+
+const lineWidth = line.clientWidth;
+const manWidth = runningMan.offsetWidth;
+
+// Starting position based ONLY on initial Q
+let position;
+
+if (A === 0 || B === 0) {
+    position = 0;
+} else if (Q === 0) {
+    position = 0;
+} else {
+    const ratio = Q / K;
+    position = 65 + 25 * Math.log10(ratio);
+}
+
+let leftPosition =
+    (position / 100) * lineWidth - (manWidth / 2);
+
+leftPosition =
+    Math.max(
+        0,
+        Math.min(lineWidth - manWidth, leftPosition)
+    );
+
+runningMan.style.left = leftPosition + "px";
+}
+
+function checkX() {
+
+    const Achoice = document
+        .querySelector('.x-choice[data-species="A"]')
+        .getAttribute("data-choice");
+
+    const Bchoice = document
+        .querySelector('.x-choice[data-species="B"]')
+        .getAttribute("data-choice");
+
+    const Cchoice = document
+        .querySelector('.x-choice[data-species="C"]')
+        .getAttribute("data-choice");
+
+    const Dchoice = document
+        .querySelector('.x-choice[data-species="D"]')
+        .getAttribute("data-choice");
+
+
+    const A = parseFloat(
+        document.getElementById("A-value").textContent
+    );
+
+    const B = parseFloat(
+        document.getElementById("B-value").textContent
+    );
+
+    const C = parseFloat(
+        document.getElementById("C-value").textContent
+    );
+
+    const D = parseFloat(
+        document.getElementById("D-value").textContent
+    );
+
+
+    const K = 4.00;
+
+    const Q = (C * D) / (A * B);
+
+
+    // Determine which direction equilibrium must shift
+
+    let correctDirection;
+
+    if (Q < K) {
+
+        // Reaction must move RIGHT
+        correctDirection = "right";
+
+    } else if (Q > K) {
+
+        // Reaction must move LEFT
+        correctDirection = "left";
+
+    } else {
+
+        document.getElementById("check-result").textContent =
+            "Already at equilibrium!";
+
+        return;
+    }
+
+
+    // Correct R-row signs
+
+    let correct;
+
+    if (correctDirection === "right") {
+
+        correct =
+            Achoice === "-x" &&
+            Bchoice === "-x" &&
+            Cchoice === "+x" &&
+            Dchoice === "+x";
+
+    } else {
+
+        correct =
+            Achoice === "+x" &&
+            Bchoice === "+x" &&
+            Cchoice === "-x" &&
+            Dchoice === "-x";
+    }
+
+
+    const result =
+        document.getElementById("check-result");
+
+
+    if (correct) {
+
+        result.textContent =
+            "Correct! Running Man reaches equilibrium 😊";
+
+        moveRunningManToEquilibrium();
+
+    } else {
+
+        result.textContent =
+            "Try again!";
+
+    }
+}
+
+function moveRunningManToEquilibrium() {
+
+    const runningMan =
+        document.querySelector(".running-man");
+
+    const line =
+        document.querySelector(".equilibrium-line");
+
+    const lineWidth =
+        line.clientWidth;
+
+    const manWidth =
+        runningMan.offsetWidth;
+
+
+    // Happy face is at 65%
+    const targetPosition = 65;
+
+
+    let leftPosition =
+        (targetPosition / 100) * lineWidth
+        - (manWidth / 2);
+
+
+    leftPosition =
+        Math.max(
+            0,
+            Math.min(
+                lineWidth - manWidth,
+                leftPosition
+            )
+        );
+
+
+    runningMan.style.left =
+        leftPosition + "px";
+}
+
+checkA();
+</script>
+<div class="watermark">Created by Jodie Amro 2026</div>
+</body>
+</html>
