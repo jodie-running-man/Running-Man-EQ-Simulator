@@ -204,11 +204,19 @@ h1 {
     display: flex;
 
 }
-@media (hover: none) and (pointer: coarse) {
-    .concentration-control .adjust-buttons {
-        display: flex;
-    }
+
+.concentration-control.touch-active .adjust-buttons {
+
+    display: flex;
+
 }
+
+.x-choice.touch-active .x-options {
+
+    display: flex;
+
+}
+
 .mode-buttons {
     display: flex;
     justify-content: center;
@@ -378,6 +386,7 @@ h1 {
     font-size: 20px;
     font-weight: 700;
 }
+
 </style>
 </head>
 
@@ -996,6 +1005,39 @@ function moveRunningManToEquilibrium() {
 }
 
 checkA();
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.querySelectorAll(".concentration-control").forEach(function(control) {
+
+        const value = control.querySelector(".concentration-value");
+
+        value.addEventListener("click", function() {
+            control.classList.toggle("touch-active");
+        });
+
+        control.querySelectorAll(".adjust-buttons button").forEach(function(button) {
+            button.addEventListener("click", function() {
+                control.classList.remove("touch-active");
+            });
+        });
+
+    });
+
+    document.querySelectorAll(".x-choice").forEach(function(choice) {
+
+        choice.addEventListener("click", function(event) {
+
+            if (event.target.closest(".x-options button")) {
+                return;
+            }
+
+            choice.classList.toggle("touch-active");
+        });
+
+    });
+
+});
 </script>
 <div class="watermark">Created by Jodie Amro 2026</div>
 </body>
