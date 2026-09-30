@@ -584,7 +584,7 @@ order: -1;
     background: #eef4f8;
 }
 
-.solve-concentration-control.touch-active .adjust-buttons {
+.solve-concentration-control.touch-active .adjust-buttons .solve-concentration-control.x-choice.touch-active{
 
     display: flex;
 
@@ -1542,7 +1542,7 @@ checkA();
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelectorAll(".concentration-control").forEach(function(control) {
+    document.querySelectorAll(".concentration-control, .solve-concentration-control").forEach(function(control) {
 
         const value = control.querySelector(".concentration-value");
 
