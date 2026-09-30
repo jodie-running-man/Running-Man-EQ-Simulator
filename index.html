@@ -110,6 +110,8 @@ h1 {
     gap: 8px;
 }
 
+
+
 .ire-grid::before {
     content: "";
     position: absolute;
@@ -153,7 +155,7 @@ h1 {
     background: white;
     width: fit-content;
     padding: 25px 40px;
-    margin: 40px auto;
+    margin: 40px 0;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
 }
@@ -271,7 +273,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 45px;
+    transform: translateX(-50px);
 }
 .ire-table {
     font-weight: 600;
@@ -293,19 +296,14 @@ h1 {
     white-space: nowrap;
 }
 #q-result  {
-    position: absolute;
-    top: 50%;
-    right: calc(100% + 25px);
-    transform: translateY(-50%);
-
+order: -1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-
-   font-size: 14px;
-   font-weight: 600;
-   white-space: nowrap;
+  gap:8px;
+  font-size: 14px;
+  font-weight:  600;
+  white-space: nowrap;
    
 }
 
@@ -387,6 +385,370 @@ h1 {
     font-weight: 700;
 }
 
+
+
+.action-row {
+   position: relative;
+   bottom: 15px;
+   height: 70px;
+   left: 20px;
+   right: 20px;
+}
+
+.apply-button {
+    left: 0;
+}
+
+.check-button {
+    right: 0;
+}
+.apply-button,
+.check-button {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: rgb(211, 222, 237);
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#check-result {
+    height: 35px;
+    margin: 12px 0 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.solve-ire-table {
+    position: relative;
+    text-align: center;
+    padding-bottom: 120px;
+    margin: 40px auto;
+}
+
+#solve-mode .solve-bottom-buttons {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.solve-bottom-buttons .apply-button,
+.solve-bottom-buttons .solve-check-button {
+    position: static !important;
+    width: 90px;
+    height: 90x;
+    margin: 0;
+  
+}
+
+.reaction {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.solve-ire-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px 120px 120px 120px 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+.solve-ire-grid::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: black;
+    left: 51%;
+    transform: translateX(-50%);
+}
+
+.solve-row-label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.solve-ire-grid input {
+    width: 100px;
+    padding: 8px;
+    font-size: 18px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.solve-divider-line {
+    height: 100%;
+    width: 5px;
+    background-color: black;
+    justify-self:center;
+   
+}
+.solve-reaction-grid {
+    display: grid;
+    grid-template-columns: 40px 90px 30px 90px 40px 90px 30px 90px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.solve-ire-table {
+    background: white;
+    width: fit-content;
+    padding: 25px 40px 120px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    left: -70px;
+}
+.solve-concentration-control {
+
+    position: relative;
+
+    display: inline-block;
+
+}
+
+.solve-concentration-value {
+
+    width: 100px;
+
+    padding: 8px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    border: 1px solid #999;
+
+    border-radius: 6px;
+
+}
+
+.solve-adjust-buttons {
+
+    display: none;
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    top: 100%;
+
+    z-index: 10;
+
+}
+
+.solve-concentration-control:hover .adjust-buttons {
+
+    display: flex;
+
+}
+
+.solve-concentration-control .adjust-buttons {
+    gap: 4px;
+}
+
+.solve-concentration-control .adjust-buttons button {
+    width: 32px;
+    height: 28px;
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.solve-concentration-control .adjust-buttons button:hover {
+    background: #eef4f8;
+}
+
+.solve-concentration-control.touch-active .adjust-buttons {
+
+    display: flex;
+
+}
+
+.solve-x-choice.touch-active .x-options {
+
+    display: flex;
+
+}
+
+.solve-mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.solve-mode-buttons button {
+    padding: 16px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: rgb(117, 175, 231);
+    color: #1f2937;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.mode-panel {
+    display: none;
+}
+
+.mode-panel.active {
+    display: block;
+}
+.solve-q-expression {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.solve-fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.solve-numerator {
+    border-bottom: 2px solid black;
+    padding: 0 8px 3px;
+}
+
+.solve-denominator {
+    padding-top: 3px;
+}
+
+.solve-ire-workspace {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#solve-q-result {
+  position: relative;
+  left: -70px;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+ align-items: flex-start;
+ gap: 8px;
+ font-size: 14px;
+ font-weight: 600;
+ white-space: nowrap;
+
+}
+
+#solve-q-result .fraction {
+    font-weight: 500;
+}
+.solve-ire-table {
+    font-weight: 600;
+}
+
+.solve-reaction-grid {
+    font-weight: 700;
+}
+
+.solve-row-label {
+    font-weight: 800;
+}
+
+
+.solve-q-expression {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+
+.solve-content-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.solve-change-value {
+    width: 100px;
+    padding: 8px;
+    font-size: 18x;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+#solve-x-input {
+    width: 120px;
+    height: 40px;
+    padding: 4px 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 6px;
+}
+
+#solve-mode .x-answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 35px;
+}
+
+#solve-mode .solve-ire-table {
+    position: relative;
+    padding-bottom: 110px;
+}
+
+#solve-mode .apply-button {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    width: 90px;
+    height: 90px;
+}
+
+#solve-mode .solve-check-button {
+   width: 90px;
+   height: 90px;
+}
+#solve-mode button[onclick="checksolveX()"] {
+    display: block;
+   
+}
 </style>
 </head>
 
@@ -415,9 +777,10 @@ h1 {
     <div id="workspace" class="workspace">
         <div id="initial-mode" class="mode-panel active">
             <h2>Initial Conditions</h2>
+            <p>Choose initial concentrations, click apply,  then decide signs on x!</p>
             <div class="ire-workspace">
             <div class="ire-table">
-        <div id="check-result"></div>
+        <div id="solve-check-result"></div>
 
     <div class="reaction-grid">
 
@@ -520,19 +883,19 @@ h1 {
     <div class="row-label">E</div>
 
     <div id="A-equilibrium" class="concentration-value">
-        0.100 − x
+        -
     </div>
 
     <div id="B-equilibrium" class="concentration-value">
-        0.100 − x
+        -
     </div>
 
     <div id="C-equilibrium" class="concentration-value">
-        x
+        -
     </div>
 
     <div id="D-equilibrium" class="concentration-value">
-        x
+        -
     </div>
 
 </div>
@@ -554,13 +917,17 @@ h1 {
     
 
 
+
+
+
+</div>
 <!-- Q RESULT -->
 
 <div id="q-result">
 
     <span>Keq = 4.00</span>
 
-    <span Q=span id="q-expression">
+    <span  id="q-expression">
 
         Q =
 
@@ -573,11 +940,9 @@ h1 {
         </span>
 
     </span>
-
+</div>
 </div>
 
-
-</div>
 </div>
 </div>
 
@@ -606,15 +971,172 @@ h1 {
 
 <!-- SOLVE FOR X -->
 
-<div id="solve-mode" class="mode-panel">
 
-    <h2>Solve for x</h2>
 
-    <p>Coming soon</p>
+ <div id="solve-workspace" class="workspace">
+        <div id="solve-mode" class="mode-panel">
+            <h2>Solve for X</h2>
+            <p>Choose initial concentrations, click apply, then solve x!</p>
+
+
+        <p>💡 Hint: Keeping [A] = [B] and [C] = [D] allows you to solve for x without the quadratic formula.</p>
+            <div class="solve-content-row"> 
+            <div class="solve-ire-workspace">
+
+    <div id="solve-q-result">
+
+    <span>Keq = 4.00</span>
+
+    <span id="q-expression">
+
+        Q =
+
+        <span class="fraction">
+
+            <span class="numerator">[C][D]</span>
+
+            <span class="denominator">[A][B]</span>
+
+        </span>
+
+    </span>
+
+</div>
+            <div class="solve-ire-table">
+        <div id="check-result"></div>
+
+    <div class="solve-reaction-grid">
+
+    <div></div>
+    <div>A</div>
+    <div>+</div>
+    <div>B</div>
+    <div>⇌</div>
+    <div>C</div>
+    <div>+</div>
+    <div>D</div>
+
+</div>
+    <div class="solve-ire-grid">
+
+    <!-- I ROW -->
+
+    <div class="solve-row-label">I</div>
+
+    <div class="solve-concentration-control">
+        <div id="solve-A-value" class="concentration-value">0.100 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increasesolveA()">▲</button>
+            <button onclick="decreasesolveA()">▼</button>
+        </div>
+    </div>
+
+    <div class="solve-concentration-control">
+        <div id="solve-B-value" class="concentration-value">0.100 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increasesolveB()">▲</button>
+            <button onclick="decreasesolveB()">▼</button>
+        </div>
+    </div>
+
+    <div class="solve-concentration-control">
+        <div id="solve-C-value" class="concentration-value">0.000 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increasesolveC()">▲</button>
+            <button onclick="decreasesolveC()">▼</button>
+        </div>
+    </div>
+
+    <div class="solve-concentration-control">
+        <div id="solve-D-value" class="concentration-value">0.000 M</div>
+
+        <div class="adjust-buttons">
+            <button onclick="increasesolveD()">▲</button>
+            <button onclick="decreasesolveD()">▼</button>
+        </div>
+    </div>
+
+
+    <!-- R ROW -->
+  <div class="solve-row-label">R</div>
+
+  <div id="solve-A-change" class="solve-change-value">-</div>
+
+  <div id="solve-B-change" class="solve-change-value">-</div>
+
+  <div id="solve-C-change" class="solve-change-value">-</div>
+
+  <div id="solve-D-change" class="solve-change-value">-</div>
+
+  
+
+    
+
+
+    <!-- E ROW -->
+
+    <div class="solve-row-label">E</div>
+
+    <div id="solve-A-equilibrium" class="solve-concentration-value">
+        -
+    </div>
+
+    <div id="solve-B-equilibrium" class="solve-concentration-value">
+       -
+    </div>
+
+    <div id="solve-C-equilibrium" class="solve-concentration-value">
+        -
+    </div>
+
+    <div id="solve-D-equilibrium" class="solve-concentration-value">
+        -
+    </div>
 
 </div>
 
 
+<!-- APPLY INITIAL VALUES -->
+
+
+
+<div class="x-answer">
+    <label for="solve-x-input">x = </label>
+    <input
+        type="number"
+        id="solve-x-input"
+        step="0.001"
+        placeholder="Enter x"
+    >
+    <span>M</span>
+</div>
+
+<div class="solve-bottom-buttons">
+
+   <button class="apply-button" onclick="solveApplied = true; updatesolveEquilibrium()">
+          APPLY INITIAL VALUES
+    </button>
+
+    <button class="solve-check-button" onclick="checksolveX()">
+    CHECK X VALUE
+</button>
+
+</div>
+
+    
+
+
+<!-- Q RESULT -->
+
+ 
+
+
+</div>
+</div>
+</div>
 </div>
 <script>
 
@@ -732,7 +1254,7 @@ function updateErow() {
 
         if (!choice) {
 
-            eCell.textContent = initial;
+            eCell.textContent = "-";
 
         } else {
 
@@ -797,7 +1319,7 @@ function updateErow() {
 
         // Nothing selected yet
         if (!choice) {
-            eCell.textContent = initial.toFixed(3);
+            eCell.textContent = "-"
             return;
         }
 
@@ -840,10 +1362,22 @@ const manWidth = runningMan.offsetWidth;
 // Starting position based ONLY on initial Q
 let position;
 
-if (A === 0 || B === 0) {
+if (A === 0 && B === 0 && C === 0 && D === 0) {
+    console.log("No initial concentrations chosen.");
+    return;
+
+} else if (A === 0 && B === 0 && C > 0 && D > 0) {
+    position = 100;
+
+} else if (C === 0 && D === 0 && A > 0 && B > 0) {
     position = 0;
+
+} else if (A === 0 || B === 0) {
+    position = 100;
+
 } else if (Q === 0) {
     position = 0;
+
 } else {
     const ratio = Q / K;
     position = 65 + 25 * Math.log10(ratio);
@@ -918,7 +1452,7 @@ function checkX() {
 
     } else {
 
-        document.getElementById("check-result").textContent =
+        document.getElementById("solve-check-result").textContent =
             "Already at equilibrium!";
 
         return;
@@ -948,7 +1482,7 @@ function checkX() {
 
 
     const result =
-        document.getElementById("check-result");
+        document.getElementById("solve-check-result");
 
 
     if (correct) {
@@ -1026,18 +1560,426 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelectorAll(".x-choice").forEach(function(choice) {
 
-        choice.addEventListener("click", function(event) {
+    choice.addEventListener("click", function(event) {
 
-            if (event.target.closest(".x-options button")) {
-                return;
-            }
+        if (event.target.closest(".x-options button")) {
+            choice.classList.remove("touch-active");
+            return;
+        }
 
-            choice.classList.toggle("touch-active");
-        });
-
+        choice.classList.toggle("touch-active");
     });
 
 });
+});
+
+
+<!-- SOLVE FOR X -->
+
+let solveApplied = false;
+
+function increasesolveA() {
+    const value = document.getElementById("solve-A-value");
+    let A = parseFloat(value.textContent);
+    A = A + 0.010;
+    value.textContent = A.toFixed(3) + " M";
+
+    updatesolveErow();
+    
+}
+
+function decreasesolveA() {
+    const value = document.getElementById("solve-A-value");
+    let A = parseFloat(value.textContent);
+   if (A > 0) A = A - 0.010;
+    value.textContent = A.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+function increasesolveB() {
+    const value = document.getElementById("solve-B-value");
+    let B = parseFloat(value.textContent);
+    B = B + 0.010;
+    value.textContent = B.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+function decreasesolveB() {
+    const value = document.getElementById("solve-B-value");
+    let B = parseFloat(value.textContent);
+    if (B > 0) B = B - 0.010;
+    value.textContent = B.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+function increasesolveC() {
+    const value = document.getElementById("solve-C-value");
+    let C = parseFloat(value.textContent);
+    C = C + 0.010;
+    value.textContent = C.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+function decreasesolveC() {
+    const value = document.getElementById("solve-C-value");
+    let C = parseFloat(value.textContent);
+   if (C > 0) C = C - 0.010;
+    value.textContent = C.toFixed(3) + " M";
+
+    updatesolveErow();
+}
+
+function increasesolveD() {
+    const value = document.getElementById("solve-D-value");
+    let D = parseFloat(value.textContent);
+    D = D + 0.010;
+    value.textContent = D.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+function decreasesolveD() {
+    const value = document.getElementById("solve-D-value");
+    let D = parseFloat(value.textContent);
+    if (D > 0) D = D - 0.010;
+    value.textContent = D.toFixed(3) + " M";
+    
+    updatesolveErow();
+}
+
+   
+
+
+function showMode(mode) {
+   document.querySelectorAll(".mode-panel").forEach(panel => {
+       panel.classList.remove("active");
+   });
+   document.getElementById(mode + "-mode").classList.add("active");
+
+   if (mode === "solve") {
+    updatesolveErow();
+   }
+} 
+
+function chooseX(species, choice) {
+
+    const box = document.querySelector(
+        '.x-choice[data-species="' + species + '"]'
+    );
+
+    // Remember the choice
+    box.setAttribute("data-choice", choice);
+
+    // Change the word "Choose" to the selected choice
+    const label = box.querySelector("span");
+    label.textContent = choice;
+
+    box.classList.remove("touch-active");
+
+    // Update the E row
+    updateErow();
+}
+
+
+function updatesolveErow() {
+
+    if (!solveApplied) {
+        document.getElementById("solve-A-equilibrium").textContent = "-";
+        document.getElementById("solve-B-equilibrium").textContent = "-";
+        document.getElementById("solve-C-equilibrium").textContent = "-";
+        document.getElementById("solve-D-equilibrium").textContent = "-";
+        return;
+    }
+
+    const A = parseFloat(
+        document.getElementById("solve-A-value").textContent
+    );
+
+    const B = parseFloat(
+        document.getElementById("solve-B-value").textContent
+    );
+
+    const C = parseFloat(
+        document.getElementById("solve-C-value").textContent
+    );
+
+    const D = parseFloat(
+        document.getElementById("solve-D-value").textContent
+    );
+
+    const K = 4.00;
+    const Q = (C * D) / (A * B);
+
+    if (Q < K) {
+
+        document.getElementById("solve-A-change").textContent = "-x";
+        document.getElementById("solve-B-change").textContent = "-x";
+        document.getElementById("solve-C-change").textContent = "+x";
+        document.getElementById("solve-D-change").textContent = "+x";
+
+        document.getElementById("solve-A-equilibrium").textContent =
+            A.toFixed(3) + " − x";
+
+        document.getElementById("solve-B-equilibrium").textContent =
+            B.toFixed(3) + " − x";
+
+        document.getElementById("solve-C-equilibrium").textContent =
+            C.toFixed(3) + " + x";
+
+        document.getElementById("solve-D-equilibrium").textContent =
+            D.toFixed(3) + " + x";
+
+    } else if (Q > K) {
+
+        document.getElementById("solve-A-change").textContent = "+x";
+        document.getElementById("solve-B-change").textContent = "+x";
+        document.getElementById("solve-C-change").textContent = "-x";
+        document.getElementById("solve-D-change").textContent = "-x";
+
+        document.getElementById("solve-A-equilibrium").textContent =
+            A.toFixed(3) + " + x";
+
+        document.getElementById("solve-B-equilibrium").textContent =
+            B.toFixed(3) + " + x";
+
+        document.getElementById("solve-C-equilibrium").textContent =
+            C.toFixed(3) + " − x";
+
+        document.getElementById("solve-D-equilibrium").textContent =
+            D.toFixed(3) + " − x";
+
+    } else {
+
+        document.getElementById("solve-A-change").textContent = "0";
+        document.getElementById("solve-B-change").textContent = "0";
+        document.getElementById("solve-C-change").textContent = "0";
+        document.getElementById("solve-D-change").textContent = "0";
+
+        document.getElementById("solve-A-equilibrium").textContent =
+            A.toFixed(3);
+
+        document.getElementById("solve-B-equilibrium").textContent =
+            B.toFixed(3);
+
+        document.getElementById("solve-C-equilibrium").textContent =
+            C.toFixed(3);
+
+        document.getElementById("solve-D-equilibrium").textContent =
+            D.toFixed(3);
+    }
+
+    
+}
+
+
+function checkA() {
+    const A = document.getElementById("A-value");
+    console.log(A.textContent);
+}
+
+
+function updatesolveEquilibrium() {
+
+    updatesolveErow();
+
+    const A = parseFloat(document.getElementById("solve-A-value").textContent);
+    const B = parseFloat(document.getElementById("solve-B-value").textContent);
+    const C = parseFloat(document.getElementById("solve-C-value").textContent);
+    const D = parseFloat(document.getElementById("solve-D-value").textContent);
+
+    const Q = (C * D) / (A * B);
+    const K = 4.00;
+
+    console.log("Q =", Q);
+    console.log("K =", K);
+
+    const runningMan = document.querySelector(".running-man");
+const line = document.querySelector(".equilibrium-line");
+
+const lineWidth = line.clientWidth;
+const manWidth = runningMan.offsetWidth;
+
+if (A === 0 && B === 0 && C === 0 && D === 0) {
+    console.log("No initial concentrations chosen.");
+    return;
+
+} else if (A === 0 && B === 0 && C > 0 && D > 0) {
+    position = 100;
+
+} else if (C === 0 && D === 0 && A > 0 && B > 0) {
+    position = 0;
+
+} else if (A === 0 || B === 0) {
+    position = 100;
+
+} else if (Q === 0) {
+    position = 0;
+
+} else {
+    const ratio = Q / K;
+    position = 65 + 25 * Math.log10(ratio);
+}
+
+let leftPosition =
+    (position / 100) * lineWidth - (manWidth / 2);
+
+leftPosition =
+    Math.max(
+        0,
+        Math.min(lineWidth - manWidth, leftPosition)
+    );
+
+runningMan.style.left = leftPosition + "px";
+}
+
+function checksolveX() {
+
+    const xInput = document.getElementById("solve-x-input");
+    const result = document.getElementById("check-result");
+
+    const xStudent = parseFloat(xInput.value);
+
+    if (isNaN(xStudent)) {
+        result.textContent = "Please enter an x value.";
+        return;
+    }
+
+    const A = parseFloat(
+        document.getElementById("solve-A-value").textContent
+    );
+
+    const B = parseFloat(
+        document.getElementById("solve-B-value").textContent
+    );
+
+    const C = parseFloat(
+        document.getElementById("solve-C-value").textContent
+    );
+
+    const D = parseFloat(
+        document.getElementById("solve-D-value").textContent
+    );
+
+    const K = 4.00;
+
+    const Q = (C * D) / (A * B);
+
+    // Already at equilibrium
+    if (Q === K) {
+
+        result.textContent =
+            "Already at equilibrium — no x value is needed.";
+
+        return;
+    }
+
+    let correctX;
+
+    // Q < K → reaction moves RIGHT
+    if (Q < K) {
+
+        // (C + x)(D + x) = K(A - x)(B - x)
+
+        const a = 1 - K;
+        const b = C + D + K * (A + B);
+        const c = C * D - K * A * B;
+
+        const discriminant = b * b - 4 * a * c;
+
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+        const possible = [x1, x2].filter(function(x) {
+            return x >= 0 &&
+                   x <= A &&
+                   x <= B;
+        });
+
+        correctX = possible[0];
+
+    }
+
+    // Q > K → reaction moves LEFT
+    else {
+
+        // (C - x)(D - x) = K(A + x)(B + x)
+
+        const a = 1 - K;
+        const b = -(C + D) - K * (A + B);
+        const c = C * D - K * A * B;
+
+        const discriminant = b * b - 4 * a * c;
+
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+        const possible = [x1, x2].filter(function(x) {
+            return x >= 0 &&
+                   x <= C &&
+                   x <= D;
+        });
+
+        correctX = possible[0];
+    }
+
+    const tolerance = 0.001;
+
+    if (Math.abs(xStudent - correctX) <= tolerance) {
+
+        result.textContent =
+            "Correct! Running Man reaches equilibrium 😊";
+
+        moveRunningManToEquilibrium();
+
+    } else {
+
+        result.textContent =
+            "Try again!";
+    }
+}
+function moveRunningManToEquilibrium() {
+
+    const runningMan =
+        document.querySelector(".running-man");
+
+    const line =
+        document.querySelector(".equilibrium-line");
+
+    const lineWidth =
+        line.clientWidth;
+
+    const manWidth =
+        runningMan.offsetWidth;
+
+
+    // Happy face is at 65%
+    const targetPosition = 65;
+
+
+    let leftPosition =
+        (targetPosition / 100) * lineWidth
+        - (manWidth / 2);
+
+
+    leftPosition =
+        Math.max(
+            0,
+            Math.min(
+                lineWidth - manWidth,
+                leftPosition
+            )
+        );
+
+
+    runningMan.style.left =
+        leftPosition + "px";
+}
+
+
 </script>
 <div class="watermark">Created by Jodie Amro 2026</div>
 </body>
