@@ -65,6 +65,7 @@ h1 {
     position: absolute;
     top: 95px;
     left: 65%;
+    transform: translateX(-50%);
     font-size: 45px;
 }
 
@@ -75,6 +76,20 @@ h1 {
     width: 140px;
     height: auto;
 }
+
+
+.standing-man {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: auto;
+    z-index: 2;
+
+} 
+
 .left-label{
     position:absolute;
     top: 170px;
@@ -446,7 +461,7 @@ order: -1;
 .solve-bottom-buttons .solve-check-button {
     position: static !important;
     width: 90px;
-    height: 90x;
+    height: 90px;
     margin: 0;
   
 }
@@ -702,7 +717,7 @@ order: -1;
 .solve-change-value {
     width: 100px;
     padding: 8px;
-    font-size: 18x;
+    font-size: 18px;
     text-align: center;
     box-sizing: border-box;
     border: 1px solid #999;
@@ -749,6 +764,273 @@ order: -1;
     display: block;
    
 }
+
+.temperature-reasoning {
+   width: 700px;
+   margin: 0 auto;
+   text-align: left;
+}
+
+.temperature-reaction {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.temperature-step,
+.temperature-answer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+.step-number {
+    font-weight: bold;
+    min-width: 25px;
+}
+
+.temp-choice {
+    position: relative;
+    display: inline-block;
+    min-width: 70px;
+    padding: 4px 8px;
+   text-align: center;
+   background: transparent;
+   border: none;
+   border-bottom: 2px solid #555;
+   cursor: pointer;
+   font-size: 20px;
+}
+
+.temp-options {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 20;
+    min-width: 100%;
+    background: white;
+    border: 2px solid #555;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.temp-choice:hover .temp-options {
+    display: block;
+}
+
+.temp-options div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.temp-options div:hover {
+    background: #e8f1f8;
+}
+
+.temperature-mode h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#temperature-mode #temperature-slider {
+    width: 350px;
+    height: 42px;
+    border: 2px solid #9aa0a6;
+    border-radius: 22px;
+    margin: 12px auto 0;
+    position: relative;
+    background: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#temperature-mode .temperature-slider::before {
+    content: "0°C";
+    position: absolute;
+    left: 8px;
+    bottom: -24px;
+    font-size: 13px;
+}
+
+#temperature-mode .temperature-slider::after {
+    content: "200°C";
+    position: absolute;
+    right: 8px;
+    bottom: -24px;
+    font-size: 13px;
+}
+
+.temperature-labels {
+    width: 270px;
+    margin: 4px auto 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.temperature-check-button {
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1f2937;
+    color: white;
+    margin-top: 15px;
+}
+
+.temperature-check-button:hover {
+    transform: scale(1.05);
+}
+
+.temperature-slider-container {
+    position: relative;
+    width: 350px;
+    margin: 20px auto;
+}
+
+.temperature-slider-container #temperature-slider {
+    width: 100%;
+}
+
+.initial-temperature-marker {
+    position: absolute;
+    left: 12.5%;
+    top: 25px;
+    transform: translateX(-50%);
+    text-align: center;
+    pointer-events: none;
+}
+
+.marker-line {
+    height: 20px;
+    width: 2px;
+    background: #1f2937;
+    margin: 0 auto 3px;
+}
+
+.marker-label {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+
+#temperature-result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.rate-choice {
+    position: relative;
+    display: inline-block;
+    min-width: 80px;
+    margin: 0 4px;
+    text-align: center;
+    border-bottom: 2px solid #1f2937;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.rate-choice > span:first-child{
+    display: inline-block;
+    padding: 2px 8px;
+}
+
+.rate-options {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    background: white;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    z-index: 9999;
+    min-width: 65px;
+}
+
+.rate-choice:hover  .rate-options {
+    display: block;
+}
+
+.rate-options div {
+    padding: 8px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.rate-options div:hover {
+    background: #eef4f8;
+}
+
+.rate-line {
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+.rates-reasoning {
+    font-size: 18px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 0;
+    position: relative;
+    left: 215px;
+}
+
+.rates-reasoning p {
+   margin: 0 0 14px 0;
+}
+
+.rates-reasoning p:last-child {
+    margin-bottom: 0;
+}
+
+.rates-check-button {
+    position: relative;
+    top: 20px;
+    left: -300px;
+    display: block;
+    margin: 12px auto 0 auto !important;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1f2937;
+    color: white;
+}
+
+.rates-check-button:hover {
+    transform: scale(1.05);
+}
+
+#rates-result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.rate-choice.touch-active .rate-options,
+.temp-choice.touch-active .temp-options {
+    display: block;
+}
+
+
+
 </style>
 </head>
 
@@ -766,17 +1048,18 @@ order: -1;
         <div class="happy-face">😊</div>
 
         <img class="running-man" src="running-man.png">
+        <img class="standing-man" src="standing-man.png"> 
 
     </div>
     <div class="mode-buttons">
-     <button onclick="showMode('initial')">Initial Conditions</button>
+     <button onclick="showMode('initial')">Predicting signs</button>
 <button onclick="showMode('equilibrium')">New Equilibrium</button>
 <button onclick="showMode('temperature')">Temperature</button>
 <button onclick="showMode('solve')">Solve for x</button>
 </div>
     <div id="workspace" class="workspace">
         <div id="initial-mode" class="mode-panel active">
-            <h2>Initial Conditions</h2>
+            <h2>Predicting signs</h2>
             <p>Choose initial concentrations, click apply,  then decide signs on x!</p>
             <div class="ire-workspace">
             <div class="ire-table">
@@ -959,15 +1242,317 @@ order: -1;
 
 
 <!-- TEMPERATURE -->
-
 <div id="temperature-mode" class="mode-panel">
 
     <h2>Temperature</h2>
 
-    <p>Coming soon</p>
+    <p>Which side is heat on? Prove with lechat by changing temp!</p>
+
+    <div class="temperature-reaction">
+        A + B ⇌ C + D <span id="reaction-heat" style="display: none;">+ heat</span>
+    </div>
+
+   <div class="temperature-slider-container">
+
+    <input
+        type="range"
+        id="temperature-slider"
+        min="0"
+        max="200"
+        value="25"
+        step="1"
+    >
+
+    <div class="initial-temperature-marker">
+        <div class="marker-line"></div>
+        <div class="marker-label">Initial</div>
+    </div>
 
 </div>
 
+    <div id="temperature-value">25°C</div>
+    <div class="temperature-labels">
+   
+</div>
+    <h3><u>Le Chat</u></h3>
+
+    <div class="temperature-reasoning">
+
+        <!-- 1 -->
+        <div class="temperature-step">
+            <span class="step-number">1.</span>
+            <span>T</span>
+
+            <div class="temp-choice" data-question="temp-direction">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('temp-direction','↑')">↑</div>
+                    <div onclick="chooseTemp('temp-direction','↓')">↓</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="temperature-step">
+            <span class="step-number">2.</span>
+            <span>Stress of</span>
+
+            <div class="temp-choice" data-question="stress">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('stress','too much')">too much</div>
+                    <div onclick="chooseTemp('stress','too little')">too little</div>
+                </div>
+            </div>
+
+            <span>heat</span>
+        </div>
+
+        <!-- 3 -->
+        <div class="temperature-step">
+            <span class="step-number">3.</span>
+            <span>Happy face moved</span>
+
+            <div class="temp-choice" data-question="happy-face">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('happy-face','left')">left</div>
+                    <div onclick="chooseTemp('happy-face','right')">right</div>
+                </div>
+            </div>
+
+            <br>
+
+            <span>∴ running man will shift to</span>
+
+            <div class="temp-choice" data-question="shift">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('shift','R')">R</div>
+                    <div onclick="chooseTemp('shift','P')">P</div>
+                </div>
+            </div>
+
+            <span>to relieve</span>
+        </div>
+
+        <!-- 4 -->
+        <div class="temperature-step">
+            <span class="step-number">4.</span>
+            <span>∴ b/c R</span>
+
+            <div class="temp-choice" data-question="reaction">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('reaction','f')">f</div>
+                    <div onclick="chooseTemp('reaction','r')">r</div>
+                </div>
+            </div>
+
+            <span>(cons/prod)</span>
+
+            <div class="temp-choice" data-question="heat-action">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('heat-action','consumes')">cons</div>
+                    <div onclick="chooseTemp('heat-action','produces')">prod</div>
+                </div>
+            </div>
+
+            <span>heat, it is</span>
+
+            <div class="temp-choice" data-question="endo-exo">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('endo-exo','endo')">endo</div>
+                    <div onclick="chooseTemp('endo-exo','exo')">exo</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THEREFORE -->
+        <div class="temperature-answer">
+            <span>∴ heat is on</span>
+
+            <div class="temp-choice" data-question="heat-side">
+                <span>-</span>
+                <div class="temp-options">
+                    <div onclick="chooseTemp('heat-side','R')">R</div>
+                    <div onclick="chooseTemp('heat-side','P')">P</div>
+                </div>
+            </div>
+
+            <span>side</span>
+        </div>
+
+        <button class="temperature-check-button" onclick="checkTemperature()">CHECK</button>
+
+        <div id="temperature-result"></div>
+
+    </div>
+
+  <h3  class="rates-title"> <u>Bonus: Rates</u></h3> 
+
+<div class="rates-reasoning">
+
+    <div>
+        <strong>1)</strong>
+
+        <div class="rate-choice" data-question="rates-temperature">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rates-temperature', '↑')">↑</div>
+                <div onclick="chooseRate('rates-temperature', '↓')">↓</div>
+            </div>
+        </div>
+
+        T makes all particles KE
+
+        <div class="rate-choice" data-question="particle-ke">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('particle-ke', '↑')">↑</div>
+                <div onclick="chooseRate('particle-ke', '↓')">↓</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <strong>2)</strong>
+        makes # particles w/ E<sub>kmin</sub>
+
+        <div class="rate-choice" data-question="particles-emin">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('particles-emin', '↑')">↑</div>
+                <div onclick="chooseRate('particles-emin', '↓')">↓</div>
+            </div>
+        </div>
+
+        for
+
+        <div class="rate-choice" data-question="rate-type">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rate-type', 'Rf-r')">R<sub>f-r</sub></div>
+                <div onclick="chooseRate('rate-type', 'Rr')">R<sub>r</sub></div>
+                <div onclick="chooseRate('rate-type', 'Rf')">R<sub>f</sub></div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <strong>3)</strong>
+        Causes
+
+        <div class="rate-choice" data-question="rate-change">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rate-change', 'Rf-r')">R<sub>f-r</sub></div>
+                <div onclick="chooseRate('rate-change', 'Rf')">R<sub>f</sub></div>
+                <div onclick="chooseRate('rate-change', 'Rr')">R<sub>r</sub></div>
+            </div>
+        </div>
+
+        to
+
+        <div class="rate-choice" data-question="rate-direction">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rate-direction', '↑')">↑</div>
+                <div onclick="chooseRate('rate-direction', '↓')">↓</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <strong>4)</strong>
+        Since R<sub id="heat-reaction-subscript"></sub> 
+
+        <div class="rate-choice" data-question="heat-reaction">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRateSubscript('heat-reaction', 'f', 'heat-reaction-subscript')">f</div>
+                <div onclick="chooseRateSubscript('heat-reaction', 'r', 'heat-reaction-subscript')">r</div>
+            </div>
+        </div>
+     cons heat it
+        <div class="rate-choice" data-question="heat-rate">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('heat-rate', '↑')">↑</div>
+                <div onclick="chooseRate('heat-rate', '↓')">↓</div>
+            </div>
+        </div>
+
+        more
+    </div>
+
+    <div>
+        <strong>5)</strong>
+        While R<sub id="rate-left-subscript"></sub>
+
+        <div class="rate-choice" data-question="rate-left">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRateSubscript('rate-left', 'f', 'rate-left-subscript')">f</div>
+                <div onclick="chooseRateSubscript('rate-left', 'r', 'rate-left-subscript')">r</div>
+            </div>
+        </div>
+
+        &gt; R<sub id="rate-right-subscript"></sub>
+
+        <div class="rate-choice" data-question="rate-right">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRateSubscript('rate-right', 'f', 'rate-right-subscript')">f</div>
+                <div onclick="chooseRateSubscript('rate-right', 'r', 'rate-right-subscript')">r</div>
+            </div>
+        </div>
+
+        net prod
+
+        <div class="rate-choice" data-question="net-product">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('net-product', 'R')">R</div>
+                <div onclick="chooseRate('net-product', 'P')">P</div>
+            </div>
+        </div>
+
+        seen
+    </div>
+
+    <div>
+        <strong>6)</strong>
+        as remake EQ, R<sub>f</sub>
+
+        <div class="rate-choice" data-question="rf-equilibrium">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rf-equilibrium', '↑')">↑</div>
+                <div onclick="chooseRate('rf-equilibrium', '↓')">↓</div>
+            </div>
+        </div>
+
+        R<sub>r</sub>
+
+        <div class="rate-choice" data-question="rr-equilibrium">
+            <span>-</span>
+            <div class="rate-options">
+                <div onclick="chooseRate('rr-equilibrium', '↑')">↑</div>
+                <div onclick="chooseRate('rr-equilibrium', '↓')">↓</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button class="rates-check-button" onclick="checkRates()">CHECK</button>
+
+<div id="rates-result"></div>
+
+</div>
 
 <!-- SOLVE FOR X -->
 
@@ -1214,83 +1799,6 @@ function decreaseD() {
     updateErow();
 }
 
-function updateErow() {
-
-    const species = ["A", "B", "C", "D"];
-
-    species.forEach(function(species) {
-
-        // Get the current Initial value
-
-        const initial = document
-
-            .getElementById(species + "-value")
-
-            .textContent
-
-            .replace(" M", "");
-
-        // Find what was selected in the R row
-
-        const choiceBox = document.querySelector(
-
-            '.x-choice[data-species="' + species + '"]'
-
-        );
-
-        const choice = choiceBox
-
-            ? choiceBox.getAttribute("data-choice")
-
-            : null;
-
-        // Find the corresponding E cell
-
-        const eCell = document.getElementById(
-
-            species + "-equilibrium"
-
-        );
-
-        if (!choice) {
-
-            eCell.textContent = "-";
-
-        } else {
-
-            eCell.textContent = initial + " " + choice;
-
-        }
-
-    });
-
-}
-
-
-function showMode(mode) {
-   document.querySelectorAll(".mode-panel").forEach(panel => {
-       panel.classList.remove("active");
-   });
-   document.getElementById(mode + "-mode").classList.add("active");
-} 
-
-function chooseX(species, choice) {
-
-    const box = document.querySelector(
-        '.x-choice[data-species="' + species + '"]'
-    );
-
-    // Remember the choice
-    box.setAttribute("data-choice", choice);
-
-    // Change the word "Choose" to the selected choice
-    const label = box.querySelector("span");
-    label.textContent = choice;
-
-    // Update the E row
-    updateErow();
-}
-
 
 function updateErow() {
 
@@ -1331,11 +1839,6 @@ function updateErow() {
 }
 
 
-
-function checkA() {
-    const A = document.getElementById("A-value");
-    console.log(A.textContent);
-}
 
 
 function updateEquilibrium() {
@@ -1652,14 +2155,57 @@ function decreasesolveD() {
 }
 
    
+function resetPredictingSigns() {
+    document.getElementById("A-value").textContent = "0.100 M";
+    document.getElementById("B-value").textContent = "0.100 M";
+    document.getElementById("C-value").textContent = "0.000 M";
+    document.getElementById("D-value").textContent = "0.000 M";
 
+    document.getElementById("A-equilibrium").textContent = "-";
+    document.getElementById("B-equilibrium").textContent = "-";
+    document.getElementById("C-equilibrium").textContent = "-";
+    document.getElementById("D-equilibrium").textContent = "-";
+}
 
 function showMode(mode) {
+
+    resetPredictingSigns();
+document.getElementById("temperature-result").textContent = "";
+    document.querySelector(".happy-face").style.left = "65%"
+    document.querySelector(".running-man").style.left = "0"
+   document.querySelectorAll(".temp-choice span").forEach(span => {
+    span.textContent = "-";
+    document.querySelectorAll(".x-choice").forEach(box => {
+    box.removeAttribute("data-choice");
+    box.querySelector("span").textContent = "Choose";
+
+    resetRates();
+
+    actualHappyFaceDirection = null;
+});
+});
+
+Object.keys(temperatureAnswers).forEach(key => delete temperatureAnswers[key]);
+
+temperatureSlider.value = 25;
+temperatureValue.textContent = "25°C";
+document.getElementById("reaction-heat").style.display = "none";
+
    document.querySelectorAll(".mode-panel").forEach(panel => {
        panel.classList.remove("active");
    });
    document.getElementById(mode + "-mode").classList.add("active");
 
+   const runningMan = document.querySelector(".running-man");
+   const standingMan = document.querySelector(".standing-man");
+
+   if (mode === "equilibrium" || mode === "temperature") {
+   runningMan.style.display = "none";
+    standingMan.style.display = "block";
+   } else {
+   runningMan.style.display = "block";
+    standingMan.style.display = "none";
+   }
    if (mode === "solve") {
     updatesolveErow();
    }
@@ -1802,6 +2348,7 @@ const line = document.querySelector(".equilibrium-line");
 
 const lineWidth = line.clientWidth;
 const manWidth = runningMan.offsetWidth;
+let position;
 
 if (A === 0 && B === 0 && C === 0 && D === 0) {
     console.log("No initial concentrations chosen.");
@@ -1979,8 +2526,234 @@ function moveRunningManToEquilibrium() {
         leftPosition + "px";
 }
 
+<!-- temperature mode  -->
+
+
+const temperatureSlider = document.getElementById("temperature-slider");
+const temperatureValue = document.getElementById("temperature-value");
+
+temperatureSlider.addEventListener("input", function() {
+    const temperature = Number(temperatureSlider.value);
+
+    temperatureValue.textContent = temperature + "°C";
+
+    const happyFace = document.querySelector(".happy-face");
+
+   let newPosition;
+
+if (temperature > 25) {
+    newPosition = 65 - ((temperature - 25) / 175) * 60;
+} else {
+    newPosition = 65 + ((25 - temperature) / 25) * 30;
+}
+
+happyFace.style.left = newPosition + "%";
+
+if (newPosition < 65) {
+    actualHappyFaceDirection = "left";
+} else if (newPosition > 65) {
+    actualHappyFaceDirection = "right";
+} else {
+    actualHappyFaceDirection = null;
+}
+});
+
+const temperatureAnswers = {};
+let actualHappyFaceDirection = null;
+const rateAnswers = {};
+
+function chooseTemp(question, answer) {
+    temperatureAnswers[question] = answer;
+
+    const choice = document.querySelector(
+        `.temp-choice[data-question="${question}"]`
+    );
+
+    choice.querySelector("span").textContent = answer;
+}
+
+function checkTemperature() {
+    const result = document.getElementById("temperature-result");
+
+    if (actualHappyFaceDirection === null) {
+        result.textContent = "Change the temperature first!";
+        return;
+    }
+
+    let correctAnswers;
+
+    if (actualHappyFaceDirection === "left") {
+        correctAnswers = {
+            "temp-direction": "↑",
+            "stress": "too much",
+            "happy-face": "left",
+            "shift": "R",
+            "reaction": "r",
+            "heat-action": "consumes",
+            "endo-exo": "endo",
+            "heat-side": "P"
+        };
+    } else {
+        correctAnswers = {
+            "temp-direction": "↓",
+            "stress": "too little",
+            "happy-face": "right",
+            "shift": "P",
+            "reaction": "f",
+            "heat-action": "produces",
+            "endo-exo": "exo",
+            "heat-side": "P"
+        };
+    }
+
+    let allCorrect = true;
+
+    for (const question in correctAnswers) {
+        if (temperatureAnswers[question] !== correctAnswers[question]) {
+            allCorrect = false;
+        }
+    }
+
+    if (allCorrect) {
+        result.textContent = "Correct!";
+
+        document.getElementById("reaction-heat").style.display = "inline";
+    } else {
+        result.textContent = "Try again!";
+    }
+}
+
+function checkRates() {
+
+    const result = document.getElementById("rates-result");
+
+    if (actualHappyFaceDirection === null) {
+        result.textContent = "Change the temperature first!";
+        return;
+    }
+
+    let correctAnswers;
+
+    // Happy face moved LEFT → temperature increased
+    if (actualHappyFaceDirection === "left") {
+
+        correctAnswers = {
+            "rates-temperature": "↑",
+            "particle-ke": "↑",
+            "particles-emin": "↑",
+            "rate-type": "Rf-r",
+            "rate-change": "Rf-r",
+            "rate-direction": "↑",
+            "heat-reaction": "r",
+            "heat-rate": "↑",
+            "rate-left": "r",
+            "rate-right": "f",
+            "net-product": "R",
+            "rf-equilibrium": "↑",
+            "rr-equilibrium": "↓"
+        };
+
+    // Happy face moved RIGHT → temperature decreased
+    } else if (actualHappyFaceDirection === "right") {
+
+        correctAnswers = {
+            "rates-temperature": "↓",
+            "particle-ke": "↓",
+            "particles-emin": "↓",
+            "rate-type": "Rf-r",
+            "rate-change": "Rf-r",
+            "rate-direction": "↓",
+            "heat-reaction": "r",
+            "heat-rate": "↓",
+            "rate-left": "f",
+            "rate-right": "r",
+            "net-product": "P",
+            "rf-equilibrium": "↓",
+            "rr-equilibrium": "↑"
+        };
+    }
+
+    let allCorrect = true;
+
+    for (const question in correctAnswers) {
+        if (rateAnswers[question] !== correctAnswers[question]) {
+            allCorrect = false;
+            break;
+        }
+    }
+
+    if (allCorrect) {
+        result.textContent = "Correct!";
+    } else {
+        result.textContent = "Try again!";
+    }
+}
+
+function chooseRate(question, answer) {
+    rateAnswers[question] = answer;
+
+    const choice = document.querySelector(
+        `.rate-choice[data-question="${question}"]`
+    );
+
+    choice.querySelector("span").textContent = answer;
+}
+
+function chooseRateSubscript(question, answer, subscriptId) {
+    rateAnswers[question] = answer;
+
+    document.getElementById(subscriptId).textContent = answer;
+
+    const choice = document.querySelector(
+        `.rate-choice[data-question="${question}"]`
+    );
+
+    choice.querySelector("span").textContent = "";
+}
+
+function resetRates() {
+    // Reset all Rate answers
+    Object.keys(rateAnswers).forEach(key => delete rateAnswers[key]);
+
+    // Reset all visible choices
+    document.querySelectorAll(".rate-choice span").forEach(span => {
+        span.textContent = "-";
+    });
+
+    // Reset subscript choices
+    document.querySelectorAll(".rate-choice").forEach(choice => {
+        choice.classList.remove("touch-active");
+    });
+
+    // Reset result
+    document.getElementById("rates-result").textContent = "";
+}
+
+
+
+document.querySelectorAll(".rate-choice, .temp-choice").forEach(choice => {
+
+    choice.addEventListener("click", function(event) {
+
+        // If the user tapped an actual option, let its onclick work
+        if (event.target.closest(".rate-options div, .temp-options div")) {
+            return;
+        }
+
+        // Close other choices
+        document.querySelectorAll(".rate-choice, .temp-choice").forEach(other => {
+            if (other !== this) {
+                other.classList.remove("touch-active");
+            }
+        });
+
+        // Open/close this choice
+        this.classList.toggle("touch-active");
+    });
+
+});
 
 </script>
-<div class="watermark">Created by Jodie Amro 2026</div>
+<div class="watermark">Created by Jodie, 2026</div>
 </body>
 </html>
