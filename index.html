@@ -1029,7 +1029,580 @@ order: -1;
     display: block;
 }
 
+/* NEW EQUILIBRIUM */
 
+#new-equilibrium-mode {
+    text-align: center;
+}
+
+.new-equilibrium-reaction {
+    font-size: 26px;
+    margin: 15px 0 25px;
+}
+
+.new-equilibrium-line {
+    position: relative;
+    width: 80%;
+    height: 100px;
+    margin: 0 auto 30px;
+    border-bottom: 3px solid #1f2937;
+}
+
+.new-equilibrium-man {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+
+/* BEAKER */
+
+.beaker-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.beaker {
+    position: relative;
+    width: 300px;
+    height: 260px;
+    border: 4px solid #1f2937;
+    border-top: none;
+    border-radius: 0 0 35px 35px;
+    background: rgba(220, 240, 250, 0.35);
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #1f2937;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: white;
+}
+
+
+/* STRESS BUTTONS */
+
+.stress-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stress-controls button {
+    padding: 8px 18px;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.stress-controls button:hover, .stress-controls button:active {
+    transform: scale(1.05);
+}
+
+
+
+
+#graph-prediction-area button {
+    padding: 8px 18px;
+    border: 1px solid #1f2937;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* GRAPH */
+
+.equilibrium-graph {
+    margin: 50px auto;
+    width: 80%;
+}
+
+.graph-box {
+    min-height: 560px;
+    height: auto;
+
+    position: relative;
+}
+
+
+/* IRE */
+
+.new-equilibrium-ire {
+    margin: 50px auto;
+}
+
+.new-equilibrium-ire table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.new-equilibrium-ire th,
+.new-equilibrium-ire td {
+    border: 1px solid #aaa;
+    padding: 12px 25px;
+    min-width: 55px;
+}
+
+.new-equilibrium-check {
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1f2937;
+    color: white;
+}
+
+/* New Equilibrium beaker */
+
+.beaker-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.beaker {
+    width: 300px;
+    height: 260px;
+    border: 4px solid #1f2937;
+    border-top: none;
+    border-radius: 0 0 35px 35px;
+    position: relative;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+.particle {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.particle.A {
+    background: #dbeafe;
+}
+
+.particle.B {
+    background: #dcfce7;
+}
+
+.particle.C {
+    background: #fef3c7;
+}
+
+.particle.D {
+    background: #fce7f3;
+}
+
+.graph-box {
+    position: relative;
+    width: 700px;
+    min-height: 560px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.graph-y-axis {
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    width: 2px;
+    height: 330px;
+    background: #1f2937;
+}
+
+.graph-x-axis {
+    position: absolute;
+    left: 60px;
+    bottom: 50px;
+    width: 580px;
+    height: 2px;
+    background: #1f2937;
+}
+
+.graph-stage {
+    position: absolute;
+    left: 62px;
+    top: 20px;
+    width: 578px;
+    height: 330px;
+}
+
+.graph-line {
+    position: absolute;
+    height: 3px;
+    left: 0;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.graph-A {
+    background: #6b7280;
+}
+
+.graph-B {
+    background: #6b7280;
+}
+
+.graph-C {
+    background: #6b7280;
+}
+
+.graph-D {
+    background: #6b7280;
+}
+
+.graph-marker {
+    position: absolute;
+    bottom: -35px;
+    font-weight: bold;
+    transform: translateX(-50%);
+}
+
+.ei-marker {
+    left: 0%;
+}
+
+.i-marker {
+    left: 25%;
+}
+
+.r-marker {
+    left: 45%;
+}
+
+.en-marker {
+    left: 70%;
+}
+
+.graph-label {
+    position: absolute;
+    font-weight: bold;
+}
+
+.y-label {
+    left: -20px;
+    top: 150px;
+    transform: rotate(-90deg);
+}
+
+.x-label {
+    right: 0;
+    bottom: 10px;
+}
+
+#equilibrium-graph-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.i-choice-box {
+    position: absolute;
+    left: 25%;
+    transform: translateX(-50%);
+
+    padding: 6px 10px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    background: white;
+
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#i-choice-A {
+    top: 270px;
+}
+
+#i-choice-B {
+    top: 175px;
+}
+
+#i-choice-C {
+    top: 220px;
+}
+
+#i-choice-D {
+    top: 35px;
+}
+
+.graph-line {
+    display: none;
+}
+
+.stress-controls {
+    position: relative;
+}
+
+.stress-message {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    line-height: 1.3;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* NEW EQUILIBRIUM GRAPH */
+
+.graph-area {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    margin: 20px auto 80px;
+}
+.equilibrium-graph {
+    margin-bottom: 40px;
+}
+
+#equilibrium-graph-svg {
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+
+.graph-axis {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.graph-event-line {
+    stroke: #777;
+    stroke-width: 1.5;
+    stroke-dasharray: 6 6;
+}
+
+.equilibrium-line {
+    stroke: black;
+    stroke-width: 2.5;
+    fill: none;
+}
+
+.graph-label {
+    font-size: 16px;
+    text-anchor: middle;
+}
+
+.species-label {
+    font-size: 16px;
+    text-anchor: middle;
+}
+
+.graph-choice-row {
+    position: absolute !important;
+    left: 200px !important;
+    transform: none !important;
+    pointer-events: auto;
+}
+
+.graph-choice-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 520px;
+    pointer-events: none;
+} 
+
+.graph-choice-row.graph-choice-D {
+    top:30px !important;
+}
+
+.graph-choice-row.graph-choice-B {
+    top: 220px !important;
+}
+
+.graph-choice-row.graph-choice-C {
+    top: 275px !important;
+}
+
+.graph-choice-row.graph-choice-A {
+    top: 335px !important;
+}
+
+.graph-choice-row button {
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.graph-choice-row span {
+    font-weight: bold;
+}
+
+.graph-choice-row button {
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+.graph-r-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* NEW GRAPH CHOICE POSITIONING */
+
+.graph-choice-row {
+    position: absolute;
+    left: 200px;
+    transform: none;
+    pointer-events: auto;
+}
+
+.graph-choice-row.graph-choice-D {
+    top: 30px;
+}
+
+.graph-choice-row.graph-choice-B {
+    top: 220px;
+}
+
+.graph-choice-row.graph-choice-C {
+    top: 275px;
+}
+
+.graph-choice-row.graph-choice-A {
+    top: 335px;
+}
+
+
+
+/* KEEP R CHOICES IN THEIR OWN SECTION */
+
+.graph-r-section .graph-r-choice-row {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0;
+}
+
+
+/* GRAPH IMAGE CHOICES */
+
+#equilibrium-mode .graph-image-choices {
+    margin-top: 40px;
+
+}
+.graph-image-choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.graph-choice-image {
+    width: 100%;
+    max-width: 300px;
+    height: 190px;
+    object-fit: contain;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.graph-choice-image:hover, .graph-choice-image:active {
+    border-color: #999;
+}
+
+.graph-choice-image.selected {
+    border-color: #222;
+}
+
+.graph-review {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.graph-review-item {
+    text-align: center;
+}
+
+.graph-review-item h4 {
+    margin-bottom: 8px;
+}
+
+.graph-review-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border: 3px solid #222;
+    border-radius: 8px;
+}
+
+
+.particle-counts {
+    text-align: center;
+    min-width: 300px;
+}
+
+.particle-counts h3 {
+    margin-bottom: 18px;
+}
+
+.particle-count-header,
+.particle-counts > div:not(.particle-count-header) {
+    display: grid;
+    grid-template-columns: 35px 75px 75px 75px;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    margin: 8px 0;
+}
+
+.particle-count-header {
+    font-weight: bold;
+}
+
+.particle-counts > div:not(.particle-count-header) span {
+    text-align: center;
+}
+ 
+
+ .equilibrium-graph {
+   padding-top: 40px;
+}
 
 </style>
 </head>
@@ -1236,9 +1809,188 @@ order: -1;
 
     <h2>New Equilibrium</h2>
 
-    <p>Coming soon</p>
+    <div class="new-equilibrium-reaction">
+        A + B ⇌ C + D
+    </div>
+
+
+    <!-- BEAKER -->
+    <div class="beaker-section">
+
+        <div class="beaker" id="beaker">
+            <!-- JavaScript will create particles here -->
+        </div>
+
+        <div class="particle-counts">
+
+    <h3>Particle Count</h3>
+
+    <div class="particle-count-header">
+        <span></span>
+        <span>BEFORE</span>
+        <span>DURING</span>
+        <span>AFTER</span>
+    </div>
+
+    <div>
+        <span>A</span>
+        <span id="before-A">0</span>
+        <span id="count-A">-</span>
+        <span id="after-A">-</span>
+    </div>
+
+    <div>
+        <span>B</span>
+        <span id="before-B">0</span>
+        <span id="count-B">-</span>
+        <span id="after-B">-</span>
+    </div>
+
+    <div>
+        <span>C</span>
+        <span id="before-C">0</span>
+        <span id="count-C">-</span>
+        <span id="after-C">-</span>
+    </div>
+
+    <div>
+        <span>D</span>
+        <span id="before-D">0</span>
+        <span id="count-D">-</span>
+        <span id="after-D">-</span>
+    </div>
 
 </div>
+
+        <!-- STRESS -->
+
+<div class="stress-controls">
+
+    <h3>1) Apply a Stress</h3>
+
+    <label for="stress-species">
+        Choose species:
+    </label>
+
+    <select id="stress-species">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+
+    <div>
+        <button
+            id="add-stress-button"
+            onclick="applyVisualStress('add')">
+            Increase
+        </button>
+
+        <button
+            id="remove-stress-button"
+            onclick="applyVisualStress('remove')">
+            Decrease
+        </button>
+    </div>
+
+    <button
+        id="reset-equilibrium-button"
+        onclick="resetEquilibriumBeaker()">
+        Reset Beaker
+    </button>
+
+    <p id="stress-message" class="stress-message">
+        Please only apply one stress at a time.
+        If you want to try another stress, click RESET.
+    </p>
+
+</div>
+
+    </div>
+
+
+   <!-- GRAPH PREDICTION -->
+
+<div class="equilibrium-graph">
+
+    <h3>2) What will the [ ] graph look like?</h3>
+
+    <p class="graph-instruction">
+        Look at the stress you applied and predict what the graph for each species will look like.
+    </p>
+
+    <div id="graph-prediction-area">
+
+        <h4 id="current-prediction-species">A</h4>
+
+        <p class="graph-instruction">
+            Which graph matches this species?
+        </p>
+
+        <div id="graph-image-choices" class="graph-image-choices">
+
+            <img
+                src="graph-no-spike-curve-up.png"
+                class="graph-choice-image"
+                data-choice="no-spike-up"
+                onclick="selectGraphImage(this)"
+                alt="No spike, curves up">
+
+            <img
+                src="graph-no-spike--curve-down.png"
+                class="graph-choice-image"
+                data-choice="no-spike-down"
+                onclick="selectGraphImage(this)"
+                alt="No spike, curves down">
+
+            <img
+                src="graph-spike-up-curve-down.png"
+                class="graph-choice-image"
+                data-choice="spike-up-down"
+                onclick="selectGraphImage(this)"
+                alt="Spike up, curves down">
+
+            <img
+                src="graph-spike-down-curve-up.png"
+                class="graph-choice-image"
+                data-choice="spike-down-up"
+                onclick="selectGraphImage(this)"
+                alt="Spike down, curves up">
+
+        </div>
+
+        <button id="back-species-button" onclick="previousGraphSpecies()" style="display: none;">
+            BACK 
+        </button>
+
+        <button
+            id="next-species-button"
+            onclick="nextGraphSpecies()">
+            NEXT 
+        </button>
+
+        <button
+            id="check-graph-predictions"
+            onclick="checkAllGraphPredictions()"
+            style="display: none;">
+            CHECK PREDICTIONS
+        </button>
+
+        <p id="graph-prediction-result"></p>
+
+    </div>
+
+</div>
+
+
+   
+
+</div>
+
+
+
+
+
 
 
 <!-- TEMPERATURE -->
@@ -1396,7 +2148,7 @@ order: -1;
 <div class="rates-reasoning">
 
     <div>
-        <strong>1)</strong>
+        <strong>1.</strong>
 
         <div class="rate-choice" data-question="rates-temperature">
             <span>-</span>
@@ -1418,7 +2170,7 @@ order: -1;
     </div>
 
     <div>
-        <strong>2)</strong>
+        <strong>2.</strong>
         makes # particles w/ E<sub>kmin</sub>
 
         <div class="rate-choice" data-question="particles-emin">
@@ -1442,7 +2194,7 @@ order: -1;
     </div>
 
     <div>
-        <strong>3)</strong>
+        <strong>3.</strong>
         Causes
 
         <div class="rate-choice" data-question="rate-change">
@@ -1466,7 +2218,7 @@ order: -1;
     </div>
 
     <div>
-        <strong>4)</strong>
+        <strong>4.</strong>
         Since R<sub id="heat-reaction-subscript"></sub> 
 
         <div class="rate-choice" data-question="heat-reaction">
@@ -1489,7 +2241,7 @@ order: -1;
     </div>
 
     <div>
-        <strong>5)</strong>
+        <strong>5.</strong>
         While R<sub id="rate-left-subscript"></sub>
 
         <div class="rate-choice" data-question="rate-left">
@@ -1524,7 +2276,7 @@ order: -1;
     </div>
 
     <div>
-        <strong>6)</strong>
+        <strong>6.</strong>
         as remake EQ, R<sub>f</sub>
 
         <div class="rate-choice" data-question="rf-equilibrium">
@@ -1564,7 +2316,7 @@ order: -1;
             <p>Choose initial concentrations, click apply, then solve x!</p>
 
 
-        <p>💡 Hint: Keeping [A] = [B] and [C] = [D] allows you to solve for x without the quadratic formula.</p>
+        <p>** Hint: Keeping [A] = [B] and [C] = [D] allows you to solve for x without the quadratic formula.</p>
             <div class="solve-content-row"> 
             <div class="solve-ire-workspace">
 
@@ -2167,6 +2919,39 @@ function resetPredictingSigns() {
     document.getElementById("D-equilibrium").textContent = "-";
 }
 
+function resetSolveForX() {
+    solveApplied = false;
+
+    document.getElementById("solve-A-value").textContent = "0.100 M";
+    document.getElementById("solve-B-value").textContent = "0.100 M";
+    document.getElementById("solve-C-value").textContent = "0.000 M";
+    document.getElementById("solve-D-value").textContent = "0.000 M";
+
+    document.getElementById("solve-A-equilibrium").textContent = "-";
+    document.getElementById("solve-B-equilibrium").textContent = "-";
+    document.getElementById("solve-C-equilibrium").textContent = "-";
+    document.getElementById("solve-D-equilibrium").textContent = "-";
+
+    document.getElementById("solve-A-change").textContent = "0";
+    document.getElementById("solve-B-change").textContent = "0";
+    document.getElementById("solve-C-change").textContent = "0";
+    document.getElementById("solve-D-change").textContent = "0";
+
+    document.getElementById("check-result").textContent = "";
+
+    const xInput = document.getElementById("solve-x-input");
+    if (xInput) {
+        xInput.value = "";
+    }
+
+    const result = document.getElementById("solve-result");
+    if (result) {
+        result.textContent = "";
+    }
+
+    updatesolveErow();
+}
+
 function showMode(mode) {
 
     resetPredictingSigns();
@@ -2207,9 +2992,20 @@ document.getElementById("reaction-heat").style.display = "none";
     standingMan.style.display = "none";
    }
    if (mode === "solve") {
-    updatesolveErow();
+   resetSolveForX();
    }
-} 
+
+
+
+if (mode === "equilibrium") {
+
+    resetEquilibriumBeaker();
+fillInitialEquilibrium();
+createParticles();
+
+    
+}
+}
 
 function chooseX(species, choice) {
 
@@ -2753,7 +3549,1147 @@ document.querySelectorAll(".rate-choice, .temp-choice").forEach(choice => {
 
 });
 
+
+
+
+
+// NEW EQUILIBRIUM MODE
+
+const equilibriumStartingValues = {
+    A: 1.00,
+    B: 3.00,
+    C: 2.00,
+    D: 6.00
+};
+
+const equilibriumKeq = 4.00;
+
+
+// -------------------------
+// EQUILIBRIUM TABLE
+// -------------------------
+
+function fillInitialEquilibrium() {
+
+    // ire table bye bye for now
+}
+
+
+// -------------------------
+// VISUAL PARTICLES
+// -------------------------
+
+let visualParticles = {
+    A: 0,
+    B: 0,
+    C: 0,
+    D: 0
+};
+
+let savedParticlePositions = {
+    A: [],
+    B: [],
+    C: [],
+    D: []
+};
+
+let startingVisualParticles = {
+    A: 0,
+    B: 0,
+    C: 0,
+    D: 0
+};
+
+let stressUsed = false;
+
+let lastStressSpecies = null;
+let lastStressType = null;
+
+
+// -------------------------
+// PARTICLE COUNTS
+// -------------------------
+
+function updateParticleCounts() {
+
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(sp => {
+
+        document.getElementById("before-" + sp).textContent =
+            startingVisualParticles[sp];
+
+    });
+}
+
+
+function updateParticleCountsDuring() {
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(sp => {
+        document.getElementById("count-" + sp).textContent =
+            visualParticles[sp];
+    });
+}
+
+
+
+function updateParticleCountsAfter() {
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(sp => {
+        document.getElementById("after-" + sp).textContent =
+            visualParticles[sp];
+    });
+}
+// -------------------------
+// PARTICLE POSITIONS
+// -------------------------
+
+
+
+// -------------------------
+// CREATE INITIAL BEAKER
+// -------------------------
+
+function createParticles() {
+
+    const amounts = {
+
+        A: Math.floor(Math.random() * 3) + 3,
+        B: Math.floor(Math.random() * 3) + 3,
+        C: Math.floor(Math.random() * 3) + 2,
+        D: Math.floor(Math.random() * 3) + 3
+
+    };
+
+    visualParticles = { ...amounts };
+    startingVisualParticles = { ...amounts };
+
+
+document.getElementById("before-A").textContent = amounts.A;
+document.getElementById("before-B").textContent = amounts.B;
+document.getElementById("before-C").textContent = amounts.C;
+document.getElementById("before-D").textContent = amounts.D;
+
+    showVisualParticles();
+}
+
+
+// -------------------------
+// SHOW PARTICLES
+// -------------------------
+
+function showVisualParticles() {
+
+    const beaker = document.getElementById("beaker");
+
+    beaker.innerHTML = "";
+
+    const species = ["A", "B", "C", "D"];
+
+    species.forEach(sp => {
+
+        for (let i = 0; i < visualParticles[sp]; i++) {
+
+            const particle = document.createElement("div");
+
+            particle.className = "particle " + sp;
+            particle.textContent = sp;
+
+        
+
+let x;
+let y;
+let tooClose;
+
+do {
+    x = Math.random() * 220 + 20;
+    y = Math.random() * 220 + 20;
+
+    tooClose = [...beaker.children].some(other => {
+        const otherX = parseFloat(other.style.left);
+        const otherY = parseFloat(other.style.top);
+
+        return Math.hypot(x - otherX, y - otherY) < 45;
+    });
+
+} while (tooClose);
+
+particle.style.left = x + "px";
+particle.style.top = y + "px";
+            beaker.appendChild(particle);
+        }
+    });
+
+    updateParticleCounts();
+}
+
+
+// -------------------------
+// APPLY ONE STRESS
+// -------------------------
+
+function applyVisualStress(type) {
+
+    if (stressUsed) {
+
+        document.getElementById("stress-message").style.display =
+            "block";
+
+        return;
+    }
+
+    stressUsed = true;
+
+    const species =
+        document.getElementById("stress-species").value;
+
+        lastStressSpecies = species;
+        lastStressType = type;
+
+
+    // Apply the stress
+
+    if (type === "add") {
+
+        visualParticles[species] += 2;
+
+    } else {
+
+        visualParticles[species] =
+            Math.max(0, visualParticles[species] - 2);
+
+    }
+
+    updateParticleCountsDuring();
+    
+    showVisualParticles();
+
+
+    // Allow time for the stressed state to be visible
+
+    setTimeout(() => {
+
+        let shiftRight = false;
+
+
+        // A and B are reactants
+        if (species === "A" || species === "B") {
+
+            shiftRight = type === "add";
+
+        }
+
+
+        // C and D are products
+        if (species === "C" || species === "D") {
+
+            shiftRight = type === "remove";
+
+        }
+
+
+        // Shift right
+
+        if (shiftRight) {
+
+            visualParticles.A =
+                Math.max(0, visualParticles.A - 1);
+
+            visualParticles.B =
+                Math.max(0, visualParticles.B - 1);
+
+            visualParticles.C += 1;
+            visualParticles.D += 1;
+
+        }
+
+
+        // Shift left
+
+        else {
+
+            visualParticles.A += 1;
+            visualParticles.B += 1;
+
+            visualParticles.C =
+                Math.max(0, visualParticles.C - 1);
+
+            visualParticles.D =
+                Math.max(0, visualParticles.D - 1);
+
+        }
+
+        showVisualParticles();
+
+        updateParticleCountsAfter();
+
+    }, 1500);
+}
+
+// ==========================================
+// FIND CORRECT GRAPH PREDICTIONS
+// ==========================================
+
+function getCorrectGraphPredictions() {
+
+    const correct = {};
+
+    const stressedSpecies = lastStressSpecies;
+    const stressType = lastStressType;
+
+    // Is the stressed species a reactant?
+    const stressedReactant =
+        stressedSpecies === "A" || stressedSpecies === "B";
+
+    // Determine which direction equilibrium shifts
+    let shiftRight;
+
+    if (stressedReactant) {
+        shiftRight = stressType === "add";
+    } else {
+        shiftRight = stressType === "remove";
+    }
+
+    // Determine the overall curve direction
+    const reactantChoice =
+        shiftRight ? "no-spike-down" : "no-spike-up";
+
+    const productChoice =
+        shiftRight ? "no-spike-up" : "no-spike-down";
+
+    // Give every species its correct graph
+    if (stressedSpecies === "A" || stressedSpecies === "B") {
+
+        correct.A = reactantChoice;
+        correct.B = reactantChoice;
+        correct.C = productChoice;
+        correct.D = productChoice;
+
+    } else {
+
+        correct.A = reactantChoice;
+        correct.B = reactantChoice;
+        correct.C = productChoice;
+        correct.D = productChoice;
+    }
+
+    // The stressed species has a spike
+    if (stressType === "add") {
+        correct[stressedSpecies] =
+            stressedReactant
+                ? "spike-up-down"
+                : "spike-up-down";
+    } else {
+        correct[stressedSpecies] =
+            stressedReactant
+                ? "spike-down-up"
+                : "spike-down-up";
+    }
+
+    return correct;
+}
+
+// -------------------------
+// RESET BEAKER
+// -------------------------
+
+function resetGraphPredictions() {
+
+    // Start again at species A
+    currentGraphSpeciesIndex = 0;
+
+    // Clear all saved choices
+    graphPredictions.A = null;
+    graphPredictions.B = null;
+    graphPredictions.C = null;
+    graphPredictions.D = null;
+
+    // Show species A
+    document.getElementById("current-prediction-species").textContent = "A";
+
+    // Show the graph choices
+    document.getElementById("graph-image-choices").style.display = "grid";
+
+    // Show NEXT
+    document.getElementById("next-species-button").style.display = "inline-block";
+
+    // Hide BACK
+    document.getElementById("back-species-button").style.display = "none";
+
+    // Hide CHECK
+    document.getElementById("check-graph-predictions").style.display = "none";
+
+    // Clear any selected image
+    document.querySelectorAll(".graph-choice-image").forEach(img => {
+        img.classList.remove("selected");
+    });
+
+
+// Remove the old review screen
+const oldReview = document.getElementById("graph-review");
+
+if (oldReview) {
+    oldReview.remove();
+}
+
+    // Clear the result message
+    document.getElementById("graph-prediction-result").textContent = "";
+}
+
+function resetEquilibriumBeaker() {
+
+    visualParticles =
+        { ...startingVisualParticles };
+
+    stressUsed = false;
+
+    document.getElementById("stress-message").style.display =
+        "none";
+
+    resetGraphPredictions();
+
+    showVisualParticles();
+
+
+["A", "B", "C", "D"].forEach(sp => {
+    document.getElementById("count-" + sp).textContent = "-";
+    document.getElementById("after-" + sp).textContent = "-";
+});
+
+}
+
+
+// ==========================================
+// GRAPH PREDICTION
+// ==========================================
+
+const graphPredictions = {
+    A: null,
+    B: null,
+    C: null,
+    D: null
+};
+
+const graphSpeciesOrder = ["A", "B", "C", "D"];
+let currentGraphSpeciesIndex = 0;
+
+
+// Create the four visual graph choices
+function createGraphChoices() {
+
+    const container = document.getElementById("graph-image-choices");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const choices = [
+        { id: 1, name: "spike-up" },
+        { id: 2, name: "spike-down" },
+        { id: 3, name: "no-spike-down" },
+        { id: 4, name: "no-spike-up" }
+    ];
+
+    choices.forEach(choice => {
+
+        const card = document.createElement("div");
+
+        card.className = "graph-choice-card";
+        card.dataset.choice = choice.id;
+
+        card.innerHTML = createGraphSVG(choice.name);
+
+        card.onclick = function () {
+            selectGraphPrediction(choice.id);
+        };
+
+        container.appendChild(card);
+    });
+}
+
+
+// Draw one of the four graph shapes
+function createGraphSVG(type) {
+
+    let path = "";
+
+    if (type === "spike-up") {
+
+        path = `
+            M 20 95
+            L 70 95
+            L 82 35
+            C 100 45, 120 65, 145 75
+            C 170 82, 195 84, 220 84
+        `;
+
+    } else if (type === "spike-down") {
+
+        path = `
+            M 20 55
+            L 70 55
+            L 82 115
+            C 100 105, 120 85, 145 75
+            C 170 68, 195 66, 220 66
+        `;
+
+    } else if (type === "no-spike-down") {
+
+        path = `
+            M 20 55
+            L 70 55
+            C 95 58, 115 68, 140 78
+            C 165 86, 195 88, 220 88
+        `;
+
+    } else if (type === "no-spike-up") {
+
+        path = `
+            M 20 55
+            L 70 55
+            C 95 52, 115 42, 140 32
+            C 165 24, 195 22, 220 22
+        `;
+    }
+
+    return `
+        <svg viewBox="0 0 240 140"
+             class="graph-choice-svg">
+
+            <line x1="20" y1="120"
+                  x2="20" y2="15"
+                  class="mini-axis"/>
+
+            <line x1="20" y1="120"
+                  x2="225" y2="120"
+                  class="mini-axis"/>
+
+            <line x1="75" y1="15"
+                  x2="75" y2="120"
+                  class="mini-I-line"/>
+
+            <path d="${path}"
+                  class="mini-graph-line"/>
+
+        </svg>
+    `;
+}
+
+
+// Select one graph
+function selectGraphPrediction(choice) {
+
+    const cards =
+        document.querySelectorAll(".graph-choice-card");
+
+    cards.forEach(card => {
+        card.classList.remove("selected");
+    });
+
+    const selected =
+        document.querySelector(
+            `.graph-choice-card[data-choice="${choice}"]`
+        );
+
+    if (selected) {
+        selected.classList.add("selected");
+    }
+
+    const species =
+        graphSpeciesOrder[currentGraphSpeciesIndex];
+
+    graphPredictions[species] = choice;
+
+    // Move to the next species after choosing
+    if (currentGraphSpeciesIndex < 3) {
+
+        currentGraphSpeciesIndex++;
+
+        setTimeout(() => {
+
+            showCurrentGraphSpecies();
+
+        }, 250);
+
+    }
+}
+
+
+// Show A, then B, then C, then D
+function showCurrentGraphSpecies() {
+
+    const species =
+        graphSpeciesOrder[currentGraphSpeciesIndex];
+
+    const title =
+        document.getElementById("current-prediction-species");
+
+    if (title) {
+        title.textContent = species;
+    }
+
+    createGraphChoices();
+}
+
+// -------------------------
+// INSTANTANEOUS CHOICES
+// -------------------------
+
+function openInstantChoices(species) {
+
+    const row =
+        document.querySelector(".graph-choice-" + species);
+
+    row.innerHTML = `
+
+        <button onclick="selectInstantChoice('${species}', 'up')">
+            ↑ Spike up
+        </button>
+
+        <button onclick="selectInstantChoice('${species}', 'down')">
+            ↓ Spike down
+        </button>
+
+        <button onclick="selectInstantChoice('${species}', 'none')">
+            No change
+        </button>
+
+    `;
+}
+
+
+// -------------------------
+// SELECT INSTANTANEOUS CHOICE
+// -------------------------
+
+function selectInstantChoice(species, choice) {
+
+    instantGraphChoices[species] = choice;
+
+    const row =
+        document.querySelector(".graph-choice-" + species);
+
+    let answerText;
+
+    if (choice === "up") {
+
+        answerText = "↑ Spike up";
+
+    } else if (choice === "down") {
+
+        answerText = "↓ Spike down";
+
+    } else {
+
+        answerText = "No change";
+
+    }
+
+    row.innerHTML = `
+        <span class="chosen-graph-answer">
+            ${answerText}
+        </span>
+    `;
+
+    checkAllInstantChoices();
+}
+
+
+// -------------------------
+// CHECK WHETHER ALL I CHOICES ARE DONE
+// -------------------------
+
+function checkAllInstantChoices() {
+
+    const species = ["A", "B", "C", "D"];
+
+    const allChosen = species.every(
+        sp => instantGraphChoices[sp] !== null
+    );
+
+    if (!allChosen) return;
+
+
+    // Now show R choices
+
+    document.getElementById("graph-r-choices").style.display =
+        "block";
+
+    const list =
+        document.getElementById("graph-r-choice-list");
+
+    list.innerHTML = "";
+
+
+    species.forEach(sp => {
+
+        list.innerHTML += `
+
+            <div class="graph-r-choice-row">
+
+                <span>${sp}</span>
+
+                <button onclick="selectRChoice('${sp}', 'up')">
+                    ↗ Curve up
+                </button>
+
+                <button onclick="selectRChoice('${sp}', 'down')">
+                    ↘ Curve down
+                </button>
+
+            </div>
+
+        `;
+
+    });
+}
+
+
+// -------------------------
+// SELECT R CHOICE
+// -------------------------
+
+function selectRChoice(species, choice) {
+
+    rGraphChoices[species] = choice;
+
+    const rows =
+        document.querySelectorAll(".graph-r-choice-row");
+
+    rows.forEach(row => {
+
+        const label =
+            row.querySelector("span");
+
+        if (!label) return;
+
+        if (label.textContent !== species) return;
+
+
+        const answer =
+            choice === "up"
+                ? "↗ Curve up"
+                : "↘ Curve down";
+
+
+        row.innerHTML = `
+
+            <span>${species}</span>
+
+            <span class="chosen-graph-answer">
+                ${answer}
+            </span>
+
+        `;
+    });
+}
+
+
+// ======================================================
+// GRAPH CHECKING
+// ======================================================
+
+function checkEquilibriumGraph() {
+
+    const species = ["A", "B", "C", "D"];
+
+
+    // Make sure every I answer exists
+
+    const allInstantChosen = species.every(
+        sp => instantGraphChoices[sp] !== null
+    );
+
+
+    // Make sure every R answer exists
+
+    const allRChosen = species.every(
+        sp => rGraphChoices[sp] !== null
+    );
+
+
+    if (!allInstantChosen || !allRChosen) {
+
+        document.getElementById("graph-stage").insertAdjacentHTML(
+            "beforeend",
+            `<p class="graph-check-message">
+                Complete all graph predictions first.
+            </p>`
+        );
+
+        return;
+    }
+
+
+    const stressSpecies =
+        document.getElementById("stress-species").value;
+
+    const stressType =
+        document.querySelector(
+            "#add-stress-button"
+        );
+
+
+    // Determine which stress was used
+    // We can infer it from the final particle count.
+
+    let stressDirection = null;
+
+    const original =
+        startingVisualParticles[stressSpecies];
+
+    const current =
+        visualParticles[stressSpecies];
+
+
+    if (current > original) {
+
+        stressDirection = "increase";
+
+    } else if (current < original) {
+
+        stressDirection = "decrease";
+
+    }
+
+
+    // Determine expected shift
+
+    let shiftRight;
+
+    if (
+        (stressSpecies === "A" || stressSpecies === "B") &&
+        stressDirection === "increase"
+    ) {
+
+        shiftRight = true;
+
+    } else if (
+        (stressSpecies === "A" || stressSpecies === "B") &&
+        stressDirection === "decrease"
+    ) {
+
+        shiftRight = false;
+
+    } else if (
+        (stressSpecies === "C" || stressSpecies === "D") &&
+        stressDirection === "increase"
+    ) {
+
+        shiftRight = false;
+
+    } else {
+
+        shiftRight = true;
+    }
+
+
+    let correct = true;
+
+
+    species.forEach(sp => {
+
+        let expectedInstant = "none";
+
+        let expectedCurve;
+
+
+        // Stressed species gets instantaneous spike
+
+        if (sp === stressSpecies) {
+
+            expectedInstant =
+                stressDirection === "increase"
+                    ? "up"
+                    : "down";
+        }
+
+
+        // Direction during R
+
+        if (
+            (sp === "A" || sp === "B") &&
+            shiftRight
+        ) {
+
+            expectedCurve = "down";
+
+        } else if (
+            (sp === "C" || sp === "D") &&
+            shiftRight
+        ) {
+
+            expectedCurve = "up";
+
+        } else if (
+            (sp === "A" || sp === "B") &&
+            !shiftRight
+        ) {
+
+            expectedCurve = "up";
+
+        } else {
+
+            expectedCurve = "down";
+        }
+
+
+        if (
+            instantGraphChoices[sp] !== expectedInstant ||
+            rGraphChoices[sp] !== expectedCurve
+        ) {
+
+            correct = false;
+        }
+
+    });
+
+
+    const message =
+        document.createElement("p");
+
+    message.className =
+        "graph-check-message";
+
+
+    if (correct) {
+
+        message.textContent =
+            "Correct! Your graph predictions match Le Châtelier's principle.";
+
+    } else {
+
+        message.textContent =
+            "Some predictions are incorrect. Think about the instantaneous change and the direction of the shift.";
+
+    }
+
+
+    document.getElementById("graph-stage").appendChild(message);
+}
+
+// ==========================================
+// GRAPH IMAGE PREDICTION
+// ==========================================
+
+
+const graphSpecies = ["A", "B", "C", "D"];
+
+
+
+
+// ------------------------------------------
+// SELECT AN IMAGE
+// ------------------------------------------
+
+function selectGraphImage(image) {
+
+    // Remove the selection from all images
+    document.querySelectorAll(".graph-choice-image").forEach(img => {
+        img.classList.remove("selected");
+    });
+
+    // Highlight the image that was clicked
+    image.classList.add("selected");
+
+    // Save the student's choice
+    const species = graphSpecies[currentGraphSpeciesIndex];
+
+    graphPredictions[species] = image.dataset.choice;
+}
+
+
+// ------------------------------------------
+// MOVE TO THE NEXT SPECIES
+// ------------------------------------------
+
+function nextGraphSpecies() {
+
+    const species = graphSpecies[currentGraphSpeciesIndex];
+
+    // Make sure the current species has a choice
+    if (graphPredictions[species] === null) {
+        alert("Choose a graph first.");
+        return;
+    }
+
+    // Move to the next species
+    currentGraphSpeciesIndex++;
+
+    // If we have finished A, B, C, D
+   if (currentGraphSpeciesIndex >= graphSpecies.length) {
+
+    // Show the review screen
+    document.getElementById("current-prediction-species").textContent =
+        "Review your predictions";
+
+    document.getElementById("next-species-button").style.display =
+        "none";
+
+    document.getElementById("back-species-button").style.display =
+        "inline-block";
+
+    document.getElementById("check-graph-predictions").style.display =
+        "inline-block";
+
+    document.getElementById("graph-image-choices").style.display =
+        "none";
+
+    showGraphPredictionReview();
+
+    return;
+
+   }
+
+    // Show the next species
+    document.getElementById("current-prediction-species").textContent =
+        graphSpecies[currentGraphSpeciesIndex];
+
+    // Restore the previous choice for the new species
+document.querySelectorAll(".graph-choice-image").forEach(img => {
+
+    img.classList.remove("selected");
+
+    if (img.dataset.choice === graphPredictions[graphSpecies[currentGraphSpeciesIndex]]) {
+        img.classList.add("selected");
+    }
+});
+
+    // Show the BACK button
+    document.getElementById("back-species-button").style.display =
+        "inline-block";
+}
+
+
+function showGraphPredictionReview() {
+
+    const reviewArea = document.getElementById("graph-prediction-area");
+
+    // Remove an old review if one already exists
+    const oldReview = document.getElementById("graph-review");
+    if (oldReview) {
+        oldReview.remove();
+    }
+
+    const review = document.createElement("div");
+    review.id = "graph-review";
+    review.className = "graph-review";
+
+    graphSpecies.forEach(species => {
+
+        const box = document.createElement("div");
+        box.className = "graph-review-item";
+
+        const label = document.createElement("h4");
+        label.textContent = species;
+
+        const image = document.createElement("img");
+        image.className = "graph-review-image";
+
+        // Find the image the student selected
+        const selectedImage = document.querySelector(
+            `.graph-choice-image[data-choice="${graphPredictions[species]}"]`
+        );
+
+        if (selectedImage) {
+            image.src = selectedImage.src;
+        }
+
+        box.appendChild(label);
+        box.appendChild(image);
+
+        review.appendChild(box);
+    });
+
+    reviewArea.appendChild(review);
+}
+
+
+
+function previousGraphSpecies() {
+
+    // Don't go before A
+    if (currentGraphSpeciesIndex <= 0) {
+        return;
+    }
+
+    // Move back one species
+    currentGraphSpeciesIndex--;
+
+    // Show that species
+    document.getElementById("current-prediction-species").textContent =
+        graphSpecies[currentGraphSpeciesIndex];
+
+    // Show the graph choices again
+    document.getElementById("graph-image-choices").style.display =
+        "grid";
+
+    // Hide CHECK while we're editing predictions
+    document.getElementById("check-graph-predictions").style.display =
+        "none";
+
+    // Show NEXT again
+    document.getElementById("next-species-button").style.display =
+        "inline-block";
+
+    // BACK stays visible unless we're back at A
+    if (currentGraphSpeciesIndex === 0) {
+        document.getElementById("back-species-button").style.display =
+            "none";
+    }
+
+    // Restore the student's previous selection for this species
+    const species = graphSpecies[currentGraphSpeciesIndex];
+
+    document.querySelectorAll(".graph-choice-image").forEach(img => {
+        img.classList.remove("selected");
+
+        if (img.dataset.choice === graphPredictions[species]) {
+            img.classList.add("selected");
+        }
+    });
+}
+
+// ------------------------------------------
+// CHECK PREDICTIONS
+// ------------------------------------------
+
+
+function checkAllGraphPredictions() {
+
+    const correctAnswers = getCorrectGraphPredictions();
+
+
+console.log("STRESS:", lastStressSpecies, lastStressType);
+console.log("STUDENT:", graphPredictions);
+console.log("CORRECT:", correctAnswers);
+
+
+    let allCorrect = true;
+
+    graphSpecies.forEach(species => {
+
+        if (graphPredictions[species] !== correctAnswers[species]) {
+            allCorrect = false;
+        }
+    });
+
+    const result = document.getElementById("graph-prediction-result");
+
+    if (allCorrect) {
+
+        result.textContent =
+            "Correct! Part (3) IRE table, coming soon..!";
+
+    } else {
+
+        result.textContent =
+            "Some predictions are incorrect. Go back and try again.";
+    }
+}
 </script>
-<div class="watermark">Created by Jodie, 2026</div>
+<div class="watermark">Created by Jodie Amro, 2026</div>
 </body>
 </html>
